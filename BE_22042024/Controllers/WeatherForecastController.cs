@@ -28,6 +28,8 @@ namespace BE_22042024.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+
+
         }
     }
 }
