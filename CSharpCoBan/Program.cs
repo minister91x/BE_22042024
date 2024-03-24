@@ -51,6 +51,8 @@ namespace CSharpCoBan
             switch (myVarVariable)
             {
                 case 1001:
+
+                // nhiều logic bên trong
                 case 1002:
                     Console.WriteLine("myVarVariable case 1001 or 1002 : " + myVarVariable); break;
                     break;
@@ -63,6 +65,7 @@ namespace CSharpCoBan
             if (myVarVariable == 1002)
             {
                 Console.WriteLine("OK");
+
             }
             else
             {
@@ -130,6 +133,48 @@ namespace CSharpCoBan
 
             } while (!int.TryParse("123", out n));
 
+            //----------------------------------------------------------------
+            // Buổi 2 : Foreach 
+
+            int[] myArray = { 10, 20, 30, 60 };
+
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                Console.WriteLine("item for: " + myArray[i]);
+            }
+            // xác định được điểm bắt đầu trong mảng
+
+            foreach (int item in myArray)
+            {
+                Console.WriteLine("item foreach: " + item);
+            }
+
+            // foreach thì không cần chỉ định điểm bắt đầu 
+            // tốc độ của for và foreach ? 
+
+            ///--------------------------------------------------
+            ///
+            int soThuNhat = 10;
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("soThuNhat=: " + soThuNhat);
+
+            var functionDemo = new FunctionDemo();
+            functionDemo.ThamTri(soThuNhat);
+
+            Console.WriteLine("soThuNhat=: " + soThuNhat);
+
+            functionDemo.ThamChieu(ref soThuNhat);
+
+            Console.WriteLine("soThuNhat=: " + soThuNhat);
+
+            int outValue;
+            functionDemo.ThamChieuUsingOut(out outValue);
+
+            Console.WriteLine("outValue=: " + outValue);
+
+            functionDemo.chiaHaiSo(10, 0);
+
+            functionDemo.checkUserInput("12");
             Console.ReadKey();
         }
 

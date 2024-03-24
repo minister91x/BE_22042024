@@ -6,3 +6,6 @@ C:\Users\Admin\source\repos\BE_22042024\CSharpCoBan\obj\Debug\CSharpCoBan.csproj
 C:\Users\Admin\source\repos\BE_22042024\CSharpCoBan\obj\Debug\CSharpCoBan.csproj.CoreCompileInputs.cache
 C:\Users\Admin\source\repos\BE_22042024\CSharpCoBan\obj\Debug\CSharpCoBan.exe
 C:\Users\Admin\source\repos\BE_22042024\CSharpCoBan\obj\Debug\CSharpCoBan.pdb
+C:\Users\Admin\source\repos\BE_22042024\CSharpCoBan\bin\Debug\CommonLibs.dll
+C:\Users\Admin\source\repos\BE_22042024\CSharpCoBan\bin\Debug\CommonLibs.pdb
+C:\Users\Admin\source\repos\BE_22042024\CSharpCoBan\obj\Debug\CSharpCoBan.csproj.CopyComplete
