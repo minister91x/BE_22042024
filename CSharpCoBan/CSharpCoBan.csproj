@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buoi4_Enum.cs" />
+    <Compile Include="Buoi4_Struct.cs" />
     <Compile Include="DataTooLongExeption.cs" />
     <Compile Include="DemoClass.cs" />
     <Compile Include="FunctionDemo.cs" />

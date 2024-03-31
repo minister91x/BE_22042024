@@ -13,6 +13,14 @@ namespace CSharpCoBan
         {
             return a + b;
         }
+
+        enum trangThaiDonHangEnums
+        {
+            DaDatHang = 1,
+            DaThanhToan = 2,
+            DaGiaoHang = 3,
+            DaHuy = 4
+        }
         static void Main(string[] args)
         {
             string myName = "My name is Quan";
@@ -154,27 +162,86 @@ namespace CSharpCoBan
 
             ///--------------------------------------------------
             ///
-            int soThuNhat = 10;
-            Console.WriteLine("--------------------------------------------");
-            Console.WriteLine("soThuNhat=: " + soThuNhat);
+            //int soThuNhat = 10;
+            //Console.WriteLine("--------------------------------------------");
+            //Console.WriteLine("soThuNhat=: " + soThuNhat);
 
-            var functionDemo = new FunctionDemo();
-            functionDemo.ThamTri(soThuNhat);
+            //var functionDemo = new FunctionDemo();
+            //functionDemo.ThamTri(soThuNhat);
 
-            Console.WriteLine("soThuNhat=: " + soThuNhat);
+            //Console.WriteLine("soThuNhat=: " + soThuNhat);
 
-            functionDemo.ThamChieu(ref soThuNhat);
+            //functionDemo.ThamChieu(ref soThuNhat);
 
-            Console.WriteLine("soThuNhat=: " + soThuNhat);
+            //Console.WriteLine("soThuNhat=: " + soThuNhat);
 
-            int outValue;
-            functionDemo.ThamChieuUsingOut(out outValue);
+            //int outValue;
+            //functionDemo.ThamChieuUsingOut(out outValue);
 
-            Console.WriteLine("outValue=: " + outValue);
+            //Console.WriteLine("outValue=: " + outValue);
 
-            functionDemo.chiaHaiSo(10, 0);
+            //functionDemo.chiaHaiSo(10, 0);
 
-            functionDemo.checkUserInput("12");
+            //functionDemo.checkUserInput("12");
+
+            //------------------------------Buổi 4 ------------
+
+            // Đặt tên hàm / biến phải mang tính chất gợi nhớ đến chức năng hoặc nhiệm vụ hàm / biến 
+
+
+            // fomat code gõ : CTRL+ K +D
+            // Cách 1 : 
+            var strProduct = new Product("Xe Bus", "Xe điện", 1, 15000);
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.WriteLine("Product Name =: " + strProduct.Name);
+            Console.WriteLine("Product Description =: " + strProduct.Description);
+
+            // Cách 2 
+            var strProduct2 = new Product();
+            strProduct2.Name = "F1";
+            strProduct2.Description = "Xe đua công thức 1";
+
+            Console.WriteLine("Product2 Name =: " + strProduct2.Name);
+            Console.WriteLine("Product2 Description =: " + strProduct2.Description);
+
+            var trangThaiDonHang = 1;
+
+            if (trangThaiDonHang == 1)
+            {
+                // làm gì đo
+            }
+
+            var str = trangThaiDonHangEnums.DaDatHang;
+
+            Console.WriteLine("Product2 Name =: " + str);
+            // 
+            if (trangThaiDonHang == (int)trangThaiDonHangEnums.DaDatHang)
+            {
+                // làm gì đo
+            }
+            if (trangThaiDonHang == (int)trangThaiDonHangEnums.DaThanhToan)
+            {
+                // làm gì đo
+            }
+            if (trangThaiDonHang == (int)trangThaiDonHangEnums.DaGiaoHang)
+            {
+                // làm gì đo
+            }
+            if (trangThaiDonHang == (int)trangThaiDonHangEnums.DaHuy)
+            {
+                // làm gì đo
+            }
+
+            List<Product> products = new List<Product>();
+            string[] cars = { "Honda", "BMW", "Ford", "Mazda" };
+
+            
+            cars[3] = "Toyota";
+            Console.WriteLine("item car[3] = " + cars[3]);
+            foreach (var item in cars)
+            {
+                Console.WriteLine("item car =: " + item);
+            }
             Console.ReadKey();
         }
 

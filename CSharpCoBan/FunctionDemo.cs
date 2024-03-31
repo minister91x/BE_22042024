@@ -14,6 +14,13 @@ namespace CSharpCoBan
 
         // Public : Bất kì chỗ nào thuôc Solution đều có thể Acccess
         // Private : Chỉ sử dụng được trong nôi bộ class và hàm đó được khai báo
+
+        public int CheckAge(int a, int b)
+        {
+            /// 100 dòng code 
+            return 1;
+        }
+
         public int tinhTongHaiSo(int soThuNhat, int soThuHai)
         {
             var tong = soThuNhat + soThuHai;
