@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,13 @@ namespace CSharpCoBan
             DaGiaoHang = 3,
             DaHuy = 4
         }
+
+        enum Order
+        {
+            OrderStatus = (int)trangThaiDonHangEnums.DaDatHang
+        }
+
+
         static void Main(string[] args)
         {
             string myName = "My name is Quan";
@@ -235,13 +243,130 @@ namespace CSharpCoBan
             List<Product> products = new List<Product>();
             string[] cars = { "Honda", "BMW", "Ford", "Mazda" };
 
-            
+
             cars[3] = "Toyota";
             Console.WriteLine("item car[3] = " + cars[3]);
             foreach (var item in cars)
             {
                 Console.WriteLine("item car =: " + item);
             }
+
+            ///-----------------------------------Buổi 5 DATETIME ------------------------------
+            ///
+
+            DateTime myDatetime = new DateTime();
+            var dateNow = DateTime.Now;
+
+            Console.WriteLine("myDatetime= " + myDatetime);
+            Console.WriteLine("dateNow= " + dateNow);
+
+            var nextDay = DateTime.Now.AddDays(1);
+
+            Console.WriteLine("nextDay= " + nextDay);
+
+            var previousDay = DateTime.Now.AddDays(-1);
+
+            Console.WriteLine("previousDay= " + previousDay);
+
+            var firstDayOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            Console.WriteLine("firstDayOfMonth= " + firstDayOfMonth);
+
+            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+
+            var dayInMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
+
+            Console.WriteLine("lastDayOfMonth= " + lastDayOfMonth);
+
+            Console.WriteLine("dayInMonth= " + dayInMonth);
+
+            var timeSpan = new TimeSpan(1, 1, 0);
+
+            var nextDayTimeSpan = DateTime.Now.Add(timeSpan);
+
+            Console.WriteLine("nextDayTimeSpan= " + nextDayTimeSpan);
+
+            var timeFomat = nextDayTimeSpan.ToString("MM/dd/yyyy HH:mm:ss");
+
+            Console.WriteLine("timeFomat= " + timeFomat);
+
+            var firstDate = DateTime.Now.AddDays(10);
+            var secondDate = DateTime.Now.AddDays(10);
+
+            var result = DateTime.Compare(firstDate, secondDate);
+            Console.WriteLine("result= " + result);
+
+            string date_string = "15/04/2024";
+
+            var dateFromString = DateTime.ParseExact(date_string, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
+            Console.WriteLine("dateFromString= " + dateFromString.ToString("yyyy/MM/dd"));
+
+            var subdate = DateTime.Now - new DateTime(2024, 04, 01);
+
+            // Console.WriteLine("subdate= " + subdate.m);
+
+            DateTime dateValue;
+            if (!DateTime.TryParseExact(date_string, "dd/MM/yyyy", new CultureInfo("en-US"), DateTimeStyles.None, out dateValue))
+            {
+                Console.WriteLine("Không phải định dạng ngày tháng");
+            }
+            else
+            {
+                Console.WriteLine("Đúng định dạng ngày tháng");
+            }
+
+            // Viết chương trình tính tuổi của mình 
+            // Nhâp vào ngày sinh của mình và in ra màn hình xem mình sinh ra được bao nhiêu ngày rồi 
+            DateTime aDateTime = DateTime.Now;
+
+            // Thời điểm năm 2000
+            DateTime y2K = new DateTime(2000, 1, 1);
+
+            // Khoảng thời gian từ năm 2000 tới nay.
+            TimeSpan interval = aDateTime.Subtract(y2K);
+
+            Console.WriteLine("Interval from Y2K to Now: " + interval);
+
+            Console.WriteLine("Days: " + interval.Days);
+            Console.WriteLine("Hours: " + interval.Hours);
+            Console.WriteLine("Minutes: " + interval.Minutes);
+            Console.WriteLine("Seconds: " + interval.Seconds);
+
+            //---------------------------------Buổi 5 STRING--------------------------
+
+            var firstStr = "first_string,";
+            var secondStr = "second_string";
+
+            var compare = String.Compare(firstStr, secondStr);
+            Console.WriteLine("compare: " + compare);
+
+            var strReplace = firstStr.Replace('f', 'F') ;
+            Console.WriteLine("strReplace: " + strReplace);
+
+            var strSplit = firstStr.Split('_');
+
+            foreach (var item in strSplit)
+            {
+                Console.WriteLine("item split: " + item);
+            }
+
+            var subStr = firstStr.Substring(0, firstStr.Length - 1);
+
+            Console.WriteLine("subStr: " + subStr);
+
+            var upper = firstStr.ToUpper();
+
+            Console.WriteLine("upper: " + upper);
+
+            var thirdstr = firstStr + secondStr;
+            Console.WriteLine("thirdstr: " + thirdstr);
+
+            StringBuilder builder = new StringBuilder(firstStr);
+            builder.Append(secondStr);
+
+            
+            Console.WriteLine("builder: " + builder);
+
             Console.ReadKey();
         }
 
