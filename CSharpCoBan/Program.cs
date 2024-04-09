@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommonLibs;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -325,160 +326,195 @@ namespace CSharpCoBan
             DateTime y2K = new DateTime(2000, 1, 1);
 
             // Khoảng thời gian từ năm 2000 tới nay.
-            TimeSpan interval = aDateTime.Subtract(y2K);
+            //TimeSpan interval = aDateTime.Subtract(y2K);
 
-            Console.WriteLine("Interval from Y2K to Now: " + interval);
+            //Console.WriteLine("Interval from Y2K to Now: " + interval);
 
-            Console.WriteLine("Days: " + interval.Days);
-            Console.WriteLine("Hours: " + interval.Hours);
-            Console.WriteLine("Minutes: " + interval.Minutes);
-            Console.WriteLine("Seconds: " + interval.Seconds);
+            //Console.WriteLine("Days: " + interval.Days);
+            //Console.WriteLine("Hours: " + interval.Hours);
+            //Console.WriteLine("Minutes: " + interval.Minutes);
+            //Console.WriteLine("Seconds: " + interval.Seconds);
 
-            //---------------------------------Buổi 5 STRING--------------------------
+            ////---------------------------------Buổi 5 STRING--------------------------
 
-            string firstStr = "first_string,";
-            var secondStr = "second_string";
+            //string firstStr = "first_string,";
+            //var secondStr = "second_string";
 
-            var compare = String.Compare(firstStr, secondStr);
-            Console.WriteLine("compare: " + compare);
+            //var compare = String.Compare(firstStr, secondStr);
+            //Console.WriteLine("compare: " + compare);
 
-            var strReplace = firstStr.Replace('f', 'F');
-            Console.WriteLine("strReplace: " + strReplace);
+            //var strReplace = firstStr.Replace('f', 'F');
+            //Console.WriteLine("strReplace: " + strReplace);
 
-            var strSplit = firstStr.Split('_');
+            //var strSplit = firstStr.Split('_');
 
-            foreach (var item in strSplit)
-            {
-                Console.WriteLine("item split: " + item);
-            }
+            //foreach (var item in strSplit)
+            //{
+            //    Console.WriteLine("item split: " + item);
+            //}
 
-            var subStr = firstStr.Substring(0, firstStr.Length - 1);
+            //var subStr = firstStr.Substring(0, firstStr.Length - 1);
 
-            Console.WriteLine("subStr: " + subStr);
+            //Console.WriteLine("subStr: " + subStr);
 
-            var upper = firstStr.ToUpper();
+            //var upper = firstStr.ToUpper();
 
-            Console.WriteLine("upper: " + upper);
+            //Console.WriteLine("upper: " + upper);
 
-            var thirdstr = firstStr + secondStr;
-            Console.WriteLine("thirdstr: " + thirdstr);
+            //var thirdstr = firstStr + secondStr;
+            //Console.WriteLine("thirdstr: " + thirdstr);
 
-            StringBuilder builder = new StringBuilder(firstStr);
-            builder.Append(secondStr);
+            //StringBuilder builder = new StringBuilder(firstStr);
+            //builder.Append(secondStr);
 
 
-            Console.WriteLine("builder: " + builder);
+            //Console.WriteLine("builder: " + builder);
 
             ///----------------------------------Buổi 6--------------------------------
             ///
 
-            var generic_Int = new Buoi6GenericFunction<int>();
+            //var generic_Int = new Buoi6GenericFunction<int>();
 
-            var tong_int = generic_Int.Tong(10, 20);
+            //var tong_int = generic_Int.Tong(10, 20);
 
-            Console.WriteLine("tong_int =: " + tong_int);
+            //Console.WriteLine("tong_int =: " + tong_int);
 
-            var generic_long = new Buoi6GenericFunction<long>();
+            //var generic_long = new Buoi6GenericFunction<long>();
 
-            var tong_ilong = generic_long.Tong(10, 20);
+            //var tong_ilong = generic_long.Tong(10, 20);
 
-            Console.WriteLine("tong_int =: " + tong_int);
+            //Console.WriteLine("tong_int =: " + tong_int);
 
-            var generic_string = new Buoi6GenericFunction<string>();
+            //var generic_string = new Buoi6GenericFunction<string>();
 
-            var tong_string = generic_string.Tong("Lop BE2204 BACKEND NET ", " Buoi 6");
+            //var tong_string = generic_string.Tong("Lop BE2204 BACKEND NET ", " Buoi 6");
 
-            Console.WriteLine("tong_string =: " + tong_string);
+            //Console.WriteLine("tong_string =: " + tong_string);
 
-            Buoi6GenericFunction<Sinhvien> intArray = new Buoi6GenericFunction<Sinhvien>(5);
-            // setting values
+            //Buoi6GenericFunction<Sinhvien> intArray = new Buoi6GenericFunction<Sinhvien>(5);
+            //// setting values
 
 
-            for (int c = 0; c < 5; c++)
+            //for (int c = 0; c < 5; c++)
+            //{
+            //    var sinhvien = new Sinhvien();
+            //    sinhvien.Ten = "Mr Quan" + c;
+            //    intArray.setItem(c, sinhvien);
+            //}
+
+
+            //Console.WriteLine("Items in char array");
+            //// retrieving the values
+            //for (int c = 0; c < 5; c++)
+            //{
+            //    Console.Write(intArray.getItem(c).Ten + "\n");
+            //}
+
+            //Dictionary<string, string> _phoneBook = new Dictionary<string, string>()
+            //{
+            //    {"Trump", "0123.456.789" },
+            //    {"Obama", "0987.654.321" },
+            //};
+
+            //foreach (KeyValuePair<string, string> entry in _phoneBook)
+            //{
+            //    Console.WriteLine($" -> {entry.Key} : {entry.Value}");
+            //}
+
+            //ArrayList myArrayList = new ArrayList();
+
+            //myArrayList.Add(1);
+            //myArrayList.Add("SOS");
+            //myArrayList.Add(true);
+
+            //foreach (var item in myArrayList)
+            //{
+            //    Console.WriteLine($" -> " + item);
+            //}
+
+            //Hashtable hashtable = new Hashtable();
+            //hashtable.Add("NAME", "MR QUAN");
+            //hashtable.Add("AGE", "200");
+            //foreach (var key in hashtable.Keys)
+            //{
+            //    Console.WriteLine("Key: {0} ", key);
+            //}
+            //foreach (var key in hashtable.Values)
+            //{
+            //    Console.WriteLine("Values: {0} ", key);
+            //}
+
+
+            //SortedList sortedList = new SortedList();
+            //sortedList.Add("FIRST", "1");
+            //sortedList.Add("SECOND", "2");
+            //foreach (var key in sortedList.Keys)
+            //{
+            //    Console.WriteLine("Key: {0} ", key);
+            //}
+
+            //for (int i = 0; i < sortedList.Count; i++)
+            //{
+            //    Console.WriteLine("Key: {0} ", sortedList["FIRST"]);
+            //}
+
+
+            //Stack myStack = new Stack();
+            //myStack.Push("Hello");
+            //myStack.Push("World");
+            //myStack.Push("!");
+            //Console.WriteLine("myStack");
+            //Console.WriteLine("\tCount: {0}", myStack.Count);
+            //Console.Write("\tValues:");
+            //foreach (Object obj in myStack)
+            //{
+            //    Console.Write(" {0}", obj);
+            //}
+
+            //Queue myQ = new Queue();
+            //myQ.Enqueue("Hello");
+            //myQ.Enqueue("World");
+            //myQ.Enqueue("!");
+            //Console.WriteLine("myQ");
+            //Console.WriteLine("\tCount: {0}", myQ.Count); Console.Write("\tValues:");
+
+            //foreach (Object obj in myQ) Console.Write(" {0}", obj);
+
+            //--------------------------------------Buổi 7---------------------
+
+            var person = new Person_Class();
+
+            person.Name = "";
+            person.Id = 1;
+
+            var person2 = new Person_Class(1, "MrQuan");
+
+
+            var student = new ManagerStudent();
+            var student_Input = new Person_Class
             {
-                var sinhvien = new Sinhvien();
-                sinhvien.Ten = "Mr Quan" + c;
-                intArray.setItem(c, sinhvien);
-            }
-
-
-            Console.WriteLine("Items in char array");
-            // retrieving the values
-            for (int c = 0; c < 5; c++)
-            {
-                Console.Write(intArray.getItem(c).Ten + "\n");
-            }
-
-            Dictionary<string, string> _phoneBook = new Dictionary<string, string>()
-            {
-                {"Trump", "0123.456.789" },
-                {"Obama", "0987.654.321" },
+                Id = 1,
+                Name = "Mr Quan",
             };
 
-            foreach (KeyValuePair<string, string> entry in _phoneBook)
+            var student_Input2 = new Person_Class
             {
-                Console.WriteLine($" -> {entry.Key} : {entry.Value}");
-            }
+                Id = 1,
+                Name = "Mr Quan NETCORE",
+            };
 
-            ArrayList myArrayList = new ArrayList();
+            student.Student_Insert(student_Input);
+            student.Student_Insert(student_Input2);
 
-            myArrayList.Add(1);
-            myArrayList.Add("SOS");
-            myArrayList.Add(true);
+            var list = student.Student_GetAll();
 
-            foreach (var item in myArrayList)
+            if (list.Count > 0)
             {
-                Console.WriteLine($" -> " + item);
+                foreach (var item in list)
+                {
+                    Console.WriteLine("item {0}", item.Name);
+                }
             }
-
-            Hashtable hashtable = new Hashtable();
-            hashtable.Add("NAME", "MR QUAN");
-            hashtable.Add("AGE", "200");
-            foreach (var key in hashtable.Keys)
-            {
-                Console.WriteLine("Key: {0} ", key);
-            }
-            foreach (var key in hashtable.Values)
-            {
-                Console.WriteLine("Values: {0} ", key);
-            }
-
-
-            SortedList sortedList = new SortedList();
-            sortedList.Add("FIRST", "1");
-            sortedList.Add("SECOND", "2");
-            foreach (var key in sortedList.Keys)
-            {
-                Console.WriteLine("Key: {0} ", key);
-            }
-
-            for (int i = 0; i < sortedList.Count; i++)
-            {
-                Console.WriteLine("Key: {0} ", sortedList["FIRST"]);
-            }
-
-
-            Stack myStack = new Stack();
-            myStack.Push("Hello");
-            myStack.Push("World");
-            myStack.Push("!");
-            Console.WriteLine("myStack");
-            Console.WriteLine("\tCount: {0}", myStack.Count);
-            Console.Write("\tValues:");
-            foreach (Object obj in myStack)
-            {
-                Console.Write(" {0}", obj);
-            }
-
-            Queue myQ = new Queue();
-            myQ.Enqueue("Hello");
-            myQ.Enqueue("World");
-            myQ.Enqueue("!");
-            Console.WriteLine("myQ");
-            Console.WriteLine("\tCount: {0}", myQ.Count); Console.Write("\tValues:");
-
-            foreach (Object obj in myQ) Console.Write(" {0}", obj);
-
 
             Console.ReadKey();
         }

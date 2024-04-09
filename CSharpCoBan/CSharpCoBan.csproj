@@ -46,6 +46,7 @@
     <Compile Include="Buoi4_Enum.cs" />
     <Compile Include="Buoi4_Struct.cs" />
     <Compile Include="Buoi6GenericFunction.cs" />
+    <Compile Include="Buoi7.cs" />
     <Compile Include="DataTooLongExeption.cs" />
     <Compile Include="DemoClass.cs" />
     <Compile Include="FunctionDemo.cs" />
