@@ -530,6 +530,21 @@ namespace CSharpCoBan
             Console.WriteLine("ReturMes:" + result_insert.ReturnMsg);
 
 
+            var employeer = new BE_2204.DataAccess.DTO.Employeer();
+            
+            employeer.GetAge();
+
+            var employeerFullTime = new BE_2204.DataAccess.DTO.EmployeerFulltime();
+
+            var employeer2 = (BE_2204.DataAccess.DTO.Person)employeerFullTime;
+
+            var employeer3 = (BE_2204.DataAccess.DTO.EmployeerFulltime)employeer;
+
+
+            /// person <- Employeer <- EmployeerFulltime // ok 
+            ///        ->            -> // fail
+
+            
             Console.ReadKey();
         }
 
