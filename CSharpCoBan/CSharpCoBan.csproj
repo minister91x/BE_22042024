@@ -47,6 +47,9 @@
     <Compile Include="Buoi4_Struct.cs" />
     <Compile Include="Buoi6GenericFunction.cs" />
     <Compile Include="Buoi7.cs" />
+    <Compile Include="Buoi7\NhanVien_Abstract.cs" />
+    <Compile Include="Buoi7\NhanVienThucTap.cs" />
+    <Compile Include="Buoi7\NhanVienToanThoiGian.cs" />
     <Compile Include="DataTooLongExeption.cs" />
     <Compile Include="DemoClass.cs" />
     <Compile Include="FunctionDemo.cs" />
@@ -58,6 +61,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BE_2204.DataAccess\BE_2204.DataAccess.csproj">
+      <Project>{03a64812-1389-4038-b706-9cf46b4e7125}</Project>
+      <Name>BE_2204.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CommonLibs\CommonLibs.csproj">
       <Project>{90307e9a-271f-4a68-b1b4-a5f7de73441f}</Project>
       <Name>CommonLibs</Name>

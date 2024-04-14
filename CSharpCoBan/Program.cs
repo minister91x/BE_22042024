@@ -1,4 +1,5 @@
 ﻿using CommonLibs;
+using CSharpCoBan.Buoi7;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -515,6 +516,19 @@ namespace CSharpCoBan
                     Console.WriteLine("item {0}", item.Name);
                 }
             }
+
+            ///---- Buổi 8-------------------------------------------
+
+            var productManager = new BE_2204.DataAccess.DALImpl.ProductDALImpl();
+
+            var product = new BE_2204.DataAccess.DTO.Product();
+            product.ProductName = "@$!@$@!4abc123";
+
+            var result_insert = productManager.Product_Insert(product);
+
+            Console.WriteLine("ReturnCode:" + result_insert.ReturnCode);
+            Console.WriteLine("ReturMes:" + result_insert.ReturnMsg);
+
 
             Console.ReadKey();
         }

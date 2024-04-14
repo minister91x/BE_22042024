@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace CSharpCoBan
 {
-    internal class Buoi7
-    {
-    }
+  
 
     public class Person
     {

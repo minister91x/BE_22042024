@@ -1,0 +1,9 @@
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.DataAccess\bin\Debug\BE_2204.DataAccess.dll
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.DataAccess\bin\Debug\BE_2204.DataAccess.pdb
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.DataAccess\bin\Debug\CommonLibs.dll
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.DataAccess\bin\Debug\CommonLibs.pdb
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.DataAccess\obj\Debug\BE_2204.DataAccess.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.DataAccess\obj\Debug\BE_2204.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.DataAccess\obj\Debug\BE_2204.DataAccess.csproj.CopyComplete
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.DataAccess\obj\Debug\BE_2204.DataAccess.dll
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.DataAccess\obj\Debug\BE_2204.DataAccess.pdb
