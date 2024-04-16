@@ -13,5 +13,6 @@ namespace BE_2204.DataAccess.DAL
         List<Product> GetProducts();
 
         ReturnData Product_Delete(int ProductId);
+        ReturnData Product_Delete(List<string> ProductIds);
     }
 }

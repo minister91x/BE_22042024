@@ -72,7 +72,10 @@ namespace BE_2204.DataAccess.DALImpl
                 throw;
             }
         }
-
+        public ReturnData Product_Delete(List<string> ProductIds)
+        {
+            throw new NotImplementedException();
+        }
         public ReturnData Product_Insert(Product product)
         {
             var returnData = new ReturnData();
@@ -116,5 +119,7 @@ namespace BE_2204.DataAccess.DALImpl
         {
             return lstProduct;
         }
+
+        
     }
 }

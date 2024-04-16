@@ -12,8 +12,11 @@ namespace BE_2204.DataAccess.DTO
         {
             Console.WriteLine("Employeer classs");
         }
-
-
         public int HeSo { get; set; }
+
+        public int TinhLuong()
+        {
+            return HeSo * 5;
+        }
     }
 }

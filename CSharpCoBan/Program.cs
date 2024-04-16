@@ -1,5 +1,6 @@
 ﻿using CommonLibs;
 using CSharpCoBan.Buoi7;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -531,20 +532,40 @@ namespace CSharpCoBan
 
 
             var employeer = new BE_2204.DataAccess.DTO.Employeer();
-            
+
             employeer.GetAge();
 
-            var employeerFullTime = new BE_2204.DataAccess.DTO.EmployeerFulltime();
+            //var employeerFullTime = new BE_2204.DataAccess.DTO.EmployeerFulltime();
 
-            var employeer2 = (BE_2204.DataAccess.DTO.Person)employeerFullTime;
+          //  var employeer2 = (BE_2204.DataAccess.DTO.Person)employeerFullTime;
 
-            var employeer3 = (BE_2204.DataAccess.DTO.EmployeerFulltime)employeer;
+            // var employeer3 = (BE_2204.DataAccess.DTO.EmployeerFulltime)employeer;
 
 
             /// person <- Employeer <- EmployeerFulltime // ok 
             ///        ->            -> // fail
 
-            
+            var nhanvien = new BE_2204.DataAccess.DTO.Employeer();
+
+            //nhanvien.HeSo = 10;
+            //nhanvien.TinhLuong();
+
+
+            nhanvien = new BE_2204.DataAccess.DTO.EmployeerFulltime(100, "Mr FullTime", 30);
+            Console.WriteLine("EmployeerFulltime:" + JsonConvert.SerializeObject(nhanvien));
+
+
+            var fulltime = (BE_2204.DataAccess.DTO.EmployeerFulltime)nhanvien;
+            Console.WriteLine("full time Name:" + fulltime.Name);
+            Console.WriteLine("fulltime lương:" + fulltime.TinhLuongFullTime());
+
+            nhanvien = new BE_2204.DataAccess.DTO.PartTime(75, "MR PartTime", 19);
+            Console.WriteLine("PartTime:" + JsonConvert.SerializeObject(nhanvien));
+
+
+            var part = (BE_2204.DataAccess.DTO.PartTime)nhanvien;
+            Console.WriteLine("part time Name:" + part.Name);
+            Console.WriteLine("part time lương:" + part.TinhLuongPart());
             Console.ReadKey();
         }
 

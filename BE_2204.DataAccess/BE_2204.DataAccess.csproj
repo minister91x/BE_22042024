@@ -45,6 +45,7 @@
     <Compile Include="DAL\IProductDAL.cs" />
     <Compile Include="DTO\Employeer.cs" />
     <Compile Include="DTO\EmployeerFulltime.cs" />
+    <Compile Include="DTO\PartTime.cs" />
     <Compile Include="DTO\Person.cs" />
     <Compile Include="DTO\Product.cs" />
     <Compile Include="DTO\ReturnData.cs" />
