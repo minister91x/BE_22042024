@@ -1,4 +1,6 @@
-﻿using CommonLibs;
+﻿using BE_2204.DataAccess.DALImpl;
+using BE_2204.DataAccess.DTO;
+using CommonLibs;
 using CSharpCoBan.Buoi7;
 using Newtonsoft.Json;
 using System;
@@ -537,7 +539,7 @@ namespace CSharpCoBan
 
             //var employeerFullTime = new BE_2204.DataAccess.DTO.EmployeerFulltime();
 
-          //  var employeer2 = (BE_2204.DataAccess.DTO.Person)employeerFullTime;
+            //  var employeer2 = (BE_2204.DataAccess.DTO.Person)employeerFullTime;
 
             // var employeer3 = (BE_2204.DataAccess.DTO.EmployeerFulltime)employeer;
 
@@ -566,6 +568,25 @@ namespace CSharpCoBan
             var part = (BE_2204.DataAccess.DTO.PartTime)nhanvien;
             Console.WriteLine("part time Name:" + part.Name);
             Console.WriteLine("part time lương:" + part.TinhLuongPart());
+
+
+            /// Buooi 10 --------------------------------------------
+            /// 
+
+
+            var producManager = new ProductManager_BaiTapSo9();
+
+            var requestData = new BuyProductRequestData
+            {
+                ProductId = 1,
+                Quantity = 2,
+                DisCount = 5,
+                TotalAmount = 1
+            };
+            var resultbyProduct = producManager.BuyProduct(requestData);
+
+            Console.WriteLine(resultbyProduct.ReturnMsg);
+
             Console.ReadKey();
         }
 

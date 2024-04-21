@@ -42,12 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DALImpl\ProductDALImpl.cs" />
+    <Compile Include="DALImpl\ProductManager_BaiTapSo9.cs" />
     <Compile Include="DAL\IProductDAL.cs" />
+    <Compile Include="DAL\IProductManager _BaiTapSo9.cs" />
     <Compile Include="DTO\Employeer.cs" />
     <Compile Include="DTO\EmployeerFulltime.cs" />
+    <Compile Include="DTO\EnumReturnCode.cs" />
     <Compile Include="DTO\PartTime.cs" />
     <Compile Include="DTO\Person.cs" />
     <Compile Include="DTO\Product.cs" />
+    <Compile Include="DTO\ProductOrder_BaiTapBuoi9.cs" />
+    <Compile Include="DTO\Product_BaiTapSo9.cs" />
     <Compile Include="DTO\ReturnData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
