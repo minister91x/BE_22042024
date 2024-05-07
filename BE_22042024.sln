@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLibs", "CommonLibs\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE_2204.DataAccess", "BE_2204.DataAccess\BE_2204.DataAccess.csproj", "{03A64812-1389-4038-B706-9CF46B4E7125}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EBook.DataAccess.NetCore", "EBook.DataAccess.NetCore\EBook.DataAccess.NetCore.csproj", "{DBE7A27E-1767-4DA0-8F42-99A0E51C42FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookConsole.NetCore", "BookConsole.NetCore\BookConsole.NetCore.csproj", "{586E71B1-0A9C-4335-AF31-F485F8A9C2D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{03A64812-1389-4038-B706-9CF46B4E7125}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03A64812-1389-4038-B706-9CF46B4E7125}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03A64812-1389-4038-B706-9CF46B4E7125}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBE7A27E-1767-4DA0-8F42-99A0E51C42FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBE7A27E-1767-4DA0-8F42-99A0E51C42FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBE7A27E-1767-4DA0-8F42-99A0E51C42FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBE7A27E-1767-4DA0-8F42-99A0E51C42FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{586E71B1-0A9C-4335-AF31-F485F8A9C2D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{586E71B1-0A9C-4335-AF31-F485F8A9C2D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{586E71B1-0A9C-4335-AF31-F485F8A9C2D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{586E71B1-0A9C-4335-AF31-F485F8A9C2D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

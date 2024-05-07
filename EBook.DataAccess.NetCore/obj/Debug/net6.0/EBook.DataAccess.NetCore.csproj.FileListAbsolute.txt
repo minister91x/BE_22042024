@@ -1,0 +1,14 @@
+C:\Users\Admin\source\repos\BE_22042024\EBook.DataAccess.NetCore\bin\Debug\net6.0\EBook.DataAccess.NetCore.deps.json
+C:\Users\Admin\source\repos\BE_22042024\EBook.DataAccess.NetCore\bin\Debug\net6.0\EBook.DataAccess.NetCore.runtimeconfig.json
+C:\Users\Admin\source\repos\BE_22042024\EBook.DataAccess.NetCore\bin\Debug\net6.0\EBook.DataAccess.NetCore.dll
+C:\Users\Admin\source\repos\BE_22042024\EBook.DataAccess.NetCore\bin\Debug\net6.0\EBook.DataAccess.NetCore.pdb
+C:\Users\Admin\source\repos\BE_22042024\EBook.DataAccess.NetCore\obj\Debug\net6.0\EBook.DataAccess.NetCore.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\BE_22042024\EBook.DataAccess.NetCore\obj\Debug\net6.0\EBook.DataAccess.NetCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\source\repos\BE_22042024\EBook.DataAccess.NetCore\obj\Debug\net6.0\EBook.DataAccess.NetCore.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\BE_22042024\EBook.DataAccess.NetCore\obj\Debug\net6.0\EBook.DataAccess.NetCore.AssemblyInfo.cs
+C:\Users\Admin\source\repos\BE_22042024\EBook.DataAccess.NetCore\obj\Debug\net6.0\EBook.DataAccess.NetCore.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\BE_22042024\EBook.DataAccess.NetCore\obj\Debug\net6.0\EBook.DataAccess.NetCore.dll
+C:\Users\Admin\source\repos\BE_22042024\EBook.DataAccess.NetCore\obj\Debug\net6.0\refint\EBook.DataAccess.NetCore.dll
+C:\Users\Admin\source\repos\BE_22042024\EBook.DataAccess.NetCore\obj\Debug\net6.0\EBook.DataAccess.NetCore.pdb
+C:\Users\Admin\source\repos\BE_22042024\EBook.DataAccess.NetCore\obj\Debug\net6.0\EBook.DataAccess.NetCore.genruntimeconfig.cache
+C:\Users\Admin\source\repos\BE_22042024\EBook.DataAccess.NetCore\obj\Debug\net6.0\ref\EBook.DataAccess.NetCore.dll
