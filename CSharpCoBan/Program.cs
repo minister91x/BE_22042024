@@ -73,14 +73,17 @@ namespace CSharpCoBan
 
             switch (myVarVariable)
             {
-                case 1001:
-
-                // nhiều logic bên trong
-                case 1002:
-                    Console.WriteLine("myVarVariable case 1001 or 1002 : " + myVarVariable); break;
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                    Console.WriteLine("31 ngày : " + myVarVariable); 
                     break;
-
-                case 100: Console.WriteLine("myVarVariable case 100 : " + myVarVariable); break;
+                case 1:
+                case 2:
+                case 3:
+                    Console.WriteLine("30 ngày: " + myVarVariable);
+                    break;
                 case 101: break;
                 default: Console.WriteLine("default : "); break;
             }

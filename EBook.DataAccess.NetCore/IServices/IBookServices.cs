@@ -10,6 +10,6 @@ namespace EBook.DataAccess.NetCore.IServices
     public interface IBookServices
     {
         Task<List<Book>> GetBooks();
-        Task<int> Book_Insert(Book book);
+        Task<BookInsertReturnData> Book_Insert(Book book);
     }
 }

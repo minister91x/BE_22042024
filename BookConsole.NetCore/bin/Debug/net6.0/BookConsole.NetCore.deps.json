@@ -464,11 +464,17 @@
       },
       "EBook.DataAccess.NetCore/1.0.0": {
         "dependencies": {
+          "Eshop.Common": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.29",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.29"
         },
         "runtime": {
           "EBook.DataAccess.NetCore.dll": {}
+        }
+      },
+      "Eshop.Common/1.0.0": {
+        "runtime": {
+          "Eshop.Common.dll": {}
         }
       }
     }
@@ -760,6 +766,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "EBook.DataAccess.NetCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Eshop.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

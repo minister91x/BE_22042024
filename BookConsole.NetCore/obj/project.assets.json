@@ -602,6 +602,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Eshop.Common": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.29",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.29"
         },
@@ -610,6 +611,16 @@
         },
         "runtime": {
           "bin/placeholder/EBook.DataAccess.NetCore.dll": {}
+        }
+      },
+      "Eshop.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Eshop.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Eshop.Common.dll": {}
         }
       }
     }
@@ -1781,6 +1792,11 @@
       "type": "project",
       "path": "../EBook.DataAccess.NetCore/EBook.DataAccess.NetCore.csproj",
       "msbuildProject": "../EBook.DataAccess.NetCore/EBook.DataAccess.NetCore.csproj"
+    },
+    "Eshop.Common/1.0.0": {
+      "type": "project",
+      "path": "../Eshop.Common/Eshop.Common.csproj",
+      "msbuildProject": "../Eshop.Common/Eshop.Common.csproj"
     }
   },
   "projectFileDependencyGroups": {

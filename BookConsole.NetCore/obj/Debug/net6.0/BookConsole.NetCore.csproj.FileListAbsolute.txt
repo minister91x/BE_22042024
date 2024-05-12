@@ -57,3 +57,5 @@ C:\Users\Admin\source\repos\BE_22042024\BookConsole.NetCore\obj\Debug\net6.0\ref
 C:\Users\Admin\source\repos\BE_22042024\BookConsole.NetCore\obj\Debug\net6.0\BookConsole.NetCore.pdb
 C:\Users\Admin\source\repos\BE_22042024\BookConsole.NetCore\obj\Debug\net6.0\BookConsole.NetCore.genruntimeconfig.cache
 C:\Users\Admin\source\repos\BE_22042024\BookConsole.NetCore\obj\Debug\net6.0\ref\BookConsole.NetCore.dll
+C:\Users\Admin\source\repos\BE_22042024\BookConsole.NetCore\bin\Debug\net6.0\Eshop.Common.dll
+C:\Users\Admin\source\repos\BE_22042024\BookConsole.NetCore\bin\Debug\net6.0\Eshop.Common.pdb

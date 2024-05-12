@@ -634,6 +634,16 @@
             "rid": "win"
           }
         }
+      },
+      "Eshop.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Eshop.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Eshop.Common.dll": {}
+        }
       }
     }
   },
@@ -1855,10 +1865,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Eshop.Common/1.0.0": {
+      "type": "project",
+      "path": "../Eshop.Common/Eshop.Common.csproj",
+      "msbuildProject": "../Eshop.Common/Eshop.Common.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Eshop.Common >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.29",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.29",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.29",
@@ -1891,7 +1907,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Admin\\source\\repos\\BE_22042024\\Eshop.Common\\Eshop.Common.csproj": {
+              "projectPath": "C:\\Users\\Admin\\source\\repos\\BE_22042024\\Eshop.Common\\Eshop.Common.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

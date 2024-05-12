@@ -13,9 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLibs", "CommonLibs\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE_2204.DataAccess", "BE_2204.DataAccess\BE_2204.DataAccess.csproj", "{03A64812-1389-4038-B706-9CF46B4E7125}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EBook.DataAccess.NetCore", "EBook.DataAccess.NetCore\EBook.DataAccess.NetCore.csproj", "{DBE7A27E-1767-4DA0-8F42-99A0E51C42FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EBook.DataAccess.NetCore", "EBook.DataAccess.NetCore\EBook.DataAccess.NetCore.csproj", "{DBE7A27E-1767-4DA0-8F42-99A0E51C42FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookConsole.NetCore", "BookConsole.NetCore\BookConsole.NetCore.csproj", "{586E71B1-0A9C-4335-AF31-F485F8A9C2D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookConsole.NetCore", "BookConsole.NetCore\BookConsole.NetCore.csproj", "{586E71B1-0A9C-4335-AF31-F485F8A9C2D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.Common", "Eshop.Common\Eshop.Common.csproj", "{0BA8A606-9B6C-4EE6-A1FC-5C403AEDBFC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{586E71B1-0A9C-4335-AF31-F485F8A9C2D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{586E71B1-0A9C-4335-AF31-F485F8A9C2D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{586E71B1-0A9C-4335-AF31-F485F8A9C2D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BA8A606-9B6C-4EE6-A1FC-5C403AEDBFC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BA8A606-9B6C-4EE6-A1FC-5C403AEDBFC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BA8A606-9B6C-4EE6-A1FC-5C403AEDBFC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BA8A606-9B6C-4EE6-A1FC-5C403AEDBFC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,40 +12,28 @@ Console.WriteLine("Nhập bookName:");
 bookName = Console.ReadLine();
 // kiểm tra dữ liêu
 
-if (string.IsNullOrEmpty(bookName))
-{
-    Console.WriteLine(" bookName không được trống:");
-    return;
-}
-
-var book_Input = new Book
+var book = new Book
 {
     BookName = bookName,
     AuthorID = 1,
-    PublishDate = DateTime.Now.AddMonths(-1),
-    IsActive = 1,
-    CreatedUser = 1
+    PublishDate = DateTime.Now,
+    Price = 100000,
+    Quantity = 150
 };
-var result = await bookservices.Book_Insert(book_Input);
 
+var rs = await bookservices.Book_Insert(book);
 
-if (result <= 0)
+if (rs.ReturnCode < 0)
 {
-    Console.WriteLine("Thêm mới thất bại:");
+    Console.WriteLine("Thêm lỗi với lý do  {0}", rs.ReturnMsg);
     return;
 }
 
-Console.WriteLine("--------Danh sách book-------");
-var list = await bookservices.GetBooks();
-
-if (list.Count > 0)
-{
-    foreach (var item in list)
-    {
-        Console.WriteLine("--------------------");
-        Console.WriteLine("bookid {0}", item.BookID);
-        Console.WriteLine("bookid {0}", item.BookName);
-        Console.WriteLine("PublishDate {0}", item.PublishDate.ToString("dd/MM/yyyy"));
-    }
-}
+// insert thành công 
+var book_servies_return = rs.book;
+Console.WriteLine("-----------------");
+Console.WriteLine("Bookname {0}", book_servies_return.BookName);
+Console.WriteLine("Bookname {0}", book_servies_return.PublishDate);
+Console.WriteLine("Bookname {0}", book_servies_return.Price);
+Console.WriteLine("Bookname {0}", book_servies_return.Quantity);
 
