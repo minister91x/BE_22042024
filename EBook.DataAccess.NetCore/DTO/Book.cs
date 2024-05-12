@@ -16,4 +16,10 @@ namespace EBook.DataAccess.NetCore.DTO
         public int Quantity { get; set; }
         public int Price { get; set; }
     }
+
+    public class GetBookRequestData
+    {
+        public string BookName { get; set; }
+        public DateTime PublishDate { get; set; }
+    }
 }

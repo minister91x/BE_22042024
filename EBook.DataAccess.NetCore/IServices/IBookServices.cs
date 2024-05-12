@@ -11,5 +11,8 @@ namespace EBook.DataAccess.NetCore.IServices
     {
         Task<List<Book>> GetBooks();
         Task<BookInsertReturnData> Book_Insert(Book book);
+
+        Task<BookInsertReturnData> ADO_Book_Insert(Book book);
+        Task<List<Book>> ADO_GetBooks(GetBookRequestData requestData);
     }
 }

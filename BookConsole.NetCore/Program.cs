@@ -21,7 +21,8 @@ var book = new Book
     Quantity = 150
 };
 
-var rs = await bookservices.Book_Insert(book);
+//var rs = await bookservices.Book_Insert(book);
+var rs = await bookservices.ADO_Book_Insert(book);
 
 if (rs.ReturnCode < 0)
 {
@@ -30,10 +31,24 @@ if (rs.ReturnCode < 0)
 }
 
 // insert thành công 
-var book_servies_return = rs.book;
-Console.WriteLine("-----------------");
-Console.WriteLine("Bookname {0}", book_servies_return.BookName);
-Console.WriteLine("Bookname {0}", book_servies_return.PublishDate);
-Console.WriteLine("Bookname {0}", book_servies_return.Price);
-Console.WriteLine("Bookname {0}", book_servies_return.Quantity);
+//var book_servies_return = rs.book;
+//Console.WriteLine("-----------------");
+//Console.WriteLine("BookID {0}", rs.ReturnCode);
+//Console.WriteLine("Bookname {0}", book_servies_return.BookName);
+//Console.WriteLine("Bookname {0}", book_servies_return.PublishDate);
+//Console.WriteLine("Bookname {0}", book_servies_return.Price);
+//Console.WriteLine("Bookname {0}", book_servies_return.Quantity);
+
+var lst_Book = await bookservices.ADO_GetBooks(new GetBookRequestData { BookName = "" });
+if (lst_Book != null && lst_Book.Count > 0)
+{
+    Console.WriteLine("-----------------");
+    foreach (var item in lst_Book)
+    {
+        Console.WriteLine("BookID {0}", item.BookID);
+        Console.WriteLine("BookName {0}", item.BookName);
+        Console.WriteLine("Quantity {0}", item.Quantity);
+        Console.WriteLine("Price {0}", item.Price);
+    }
+}
 
