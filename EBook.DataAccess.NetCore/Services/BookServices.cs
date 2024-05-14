@@ -169,5 +169,48 @@ namespace EBook.DataAccess.NetCore.Services
         {
             return _eBookDBContext.book.ToList();
         }
+
+        public async Task<List<Book>> GetBook_ByStock(GetBook_ByStockRequestData requestData)
+        {
+            var list = new List<Book>();
+            try
+            {
+                // Bước 1: Mở connection đến DB
+                var connect = Eshop.Common.DbHelper.GetSqlConnection();
+
+                // Bước 2: Sử dụng Sqlcommand để thao tác
+
+                var cmd = new SqlCommand("SP_Book_GetStock", connect);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                // Bước 3: gán giá trị cho các parammeter 
+                cmd.Parameters.AddWithValue("@BookName", requestData.BookName);
+
+                // Bước 4: nhận kết quá 
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var book = new Book
+                    {
+                        BookID = reader["BookID"] != null ? Convert.ToInt32(reader["BookID"]) : 0,
+                        BookName = reader["BookName"] != null ? Convert.ToString(reader["BookName"]) : String.Empty,
+                        Price = reader["Price"] != null ? Convert.ToInt32(reader["Price"]) : 0,
+                        Quantity = reader["Quantity"] != null ? Convert.ToInt32(reader["Quantity"]) : 0,
+                    };
+
+                    list.Add(book);
+                }
+
+                connect.Close();
+                return list;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }

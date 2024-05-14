@@ -22,4 +22,9 @@ namespace EBook.DataAccess.NetCore.DTO
         public string BookName { get; set; }
         public DateTime PublishDate { get; set; }
     }
+
+    public class GetBook_ByStockRequestData
+    {
+        public string BookName { get; set; }
+    }
 }
