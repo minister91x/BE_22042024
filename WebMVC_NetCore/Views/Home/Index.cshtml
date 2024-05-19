@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<WebMVC_NetCore.Models.BookModels>
+<div class="text-center">
+    <h1 class="display-4">Welcome111</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>BookId</th>
+            <th>BookName</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.BookID</td>
+                    <td>@item.BookName</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
