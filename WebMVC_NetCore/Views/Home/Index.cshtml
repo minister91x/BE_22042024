@@ -6,23 +6,81 @@
     <h1 class="display-4">Welcome111</h1>
 </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>BookId</th>
-            <th>BookName</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model != null && Model.Count > 0)
-        {
-            foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.BookID</td>
-                    <td>@item.BookName</td>
-                </tr>
+<div class="form-group">
+    <label for="email">Bookname:</label>
+    <input type="email" class="form-control" id="txtBookname">
+</div>
+<button type="button" id="btnSave" class="btn btn-success">Thêm</button>
+
+<div id="Test_PartialView"></div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function() {
+
+            LoadData();
+
+            $("#btnSave").click(function() {
+
+                SaveData();
+            });
+
+        });
+
+        function SaveData() {
+
+            debugger;
+            var name = $("#txtBookname").val();
+            if (name == null || name == "") {
+                alert("Book Name không được trống!");
+                return;
             }
+
+             var param = {
+                 bookName:name
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: "/Home/SaveBook",
+                data: param,
+                async: true,
+               // dataType: "html",
+                dataType:"json",
+                success: function(rs) {
+                    if (rs.responseCode > 0) {
+
+                        LoadData();
+                    }
+                    alert(rs.responseMessage);
+                },
+                error(rs) {
+                    console.log(JSON.stringify(rs));
+                }
+            });
         }
-    </tbody>
-</table>
+
+        function LoadData() {
+
+            var param = {
+
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: "/Home/DemoLoadAjaxView",
+                data: param,
+                async: true,
+                dataType: "html",
+                // dataType:"json",
+                success: function(rs) {
+                    $("#Test_PartialView").html("");
+                    $("#Test_PartialView").html(rs);
+                },
+                error(rs) {
+                    console.log(JSON.stringify(rs));
+                }
+            });
+        }
+    </script>
+    }
