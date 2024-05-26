@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EBook.DataAccess.NetCore.DTO;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebMVC_NetCore.Models;
 
@@ -59,29 +60,24 @@ namespace WebMVC_NetCore.Controllers
             return PartialView(model);
         }
 
-        public JsonResult SaveBook(BookInsertRequestData requestData)
+        public async Task<JsonResult> SaveProduct(ProductInsertUpdateRequestData requestData)
         {
             var model = new BookInsertResponse();
             try
             {
                 if (requestData == null
-                    || string.IsNullOrEmpty(requestData.bookName))
+                    || string.IsNullOrEmpty(requestData.ProductName))
                 {
                     model.ResponseCode = -1;
                     model.ResponseMessage = "Dữ liệu không được trống";
                     return Json(model);
                 }
 
-                var books = GetBooks();
+                var rs = await new EBook.DataAccess.NetCore.Services.ProductServices().ProductInsertUpdate(requestData);
 
-                books.Add(new BookModels
-                {
-                    BookID = 10,
-                    BookName = requestData.bookName
-                });
-
-                model.ResponseCode = 11;
-                model.ResponseMessage = "Thêm thành công";
+               
+                model.ResponseCode = rs.ReturnCode;
+                model.ResponseMessage = rs.ReturnMsg;
                 return Json(model);
             }
             catch (Exception ex)

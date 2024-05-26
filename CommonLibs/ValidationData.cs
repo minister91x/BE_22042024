@@ -9,14 +9,17 @@ namespace CommonLibs
 {
     public static class ValidationData
     {
-        public static bool ContainsNumber(string input)
+        public static bool IsNumeric(this string s)
         {
-            if (input.Any(char.IsDigit))
+            foreach (char c in s)
             {
-                return true;
+                if (!char.IsDigit(c) && c != '.')
+                {
+                    return false;
+                }
             }
-            else
-                return false;
+
+            return true;
         }
         public static bool CheckContainSpecialChar(string input)
         {

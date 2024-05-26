@@ -16,5 +16,7 @@ namespace EBook.DataAccess.NetCore.DBContext
         }
         public virtual DbSet<Book> book {get;set;}
 
+        public virtual DbSet<Product> product { get; set; }
+        public virtual DbSet<ProductAttribute> productAttribute { get; set; }
     }
 }

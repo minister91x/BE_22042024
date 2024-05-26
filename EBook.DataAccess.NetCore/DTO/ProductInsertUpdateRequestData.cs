@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EBook.DataAccess.NetCore.DTO
+{
+    public class ProductInsertUpdateRequestData
+    {
+        public int ProductID { get; set; }
+        public int CategoryId { get; set; }
+        public string ProductName { get; set; }
+
+        public string AttributeValues { get; set; } // 256 lit -den , 10 , 1000 , 9000 _ 236 lit -den , 15 , 1200 , 10000  
+    }
+}

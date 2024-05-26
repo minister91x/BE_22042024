@@ -16,4 +16,9 @@ namespace EBook.DataAccess.NetCore.DTO
     {
         public Book book { get; set; }
     }
+
+    public class ProductInsertReturnData : ReturnData
+    {
+        public Product product { get; set; }
+    }
 }

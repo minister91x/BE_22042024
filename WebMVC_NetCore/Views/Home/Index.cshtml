@@ -6,9 +6,47 @@
     <h1 class="display-4">Welcome111</h1>
 </div>
 
-<div class="form-group">
-    <label for="email">Bookname:</label>
-    <input type="email" class="form-control" id="txtBookname">
+<div class="row">
+    <div class="form-group">
+        <label for="email">ProductName:</label>
+        <input type="email" class="form-control" id="txtProducName">
+    </div>
+
+    <div class="form-group" style="padding-bottom: 60px;">
+        <label for="Title" class="control-label col-md-3">Ảnh sản phẩm:<span class="required">*</span></label>
+        <div class="col-md-6">
+            <div class="input-icon right">
+                <input id="upload" class="form-control" type="file" name="upload" accept="image/*" multiple="multiple" />
+                <p style="color:red">Chọn từ 1 - 3 ảnh sản phẩm</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Title" class="control-label col-md-3">ảnh đã chọn:<span class="required">*</span></label>
+        <div class="col-md-6">
+            <div class="input-icon right">
+                <div id="dvPreview">
+                </div>
+                <div id="divAddMoreImage" style="display:none;">
+                    <input type="file" id="fileaddMore" style="display:none">
+                    <a style="cursor:pointer;" onclick="openFileOption();"><i class="fa fa-plus-circle"></i>Thêm ảnh</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ProductClassify">
+        <div class="row">
+            <div class="col-md-2"><input type="text" id"txtA=ttributeName_0" value="" class="form-control" placeholder="Tên phân loại" /></div>
+            <div class="col-md-2"><input type="text" id="txtQuantity_0" value="" class="form-control" placeholder="Số lượng" /></div>
+            <div class="col-md-2"><input type="text" id="txtPrice_0" value="" class="form-control" placeholder="giá" /></div>
+            <div class="col-md-2"><input type="text" id="txtPriceSale_0" value="" class="form-control" placeholder="giá sale" /></div>
+            <div class="col-md-2"><a style="cursor:pointer;" onclick="ProductClassify_Add()"><i class="fa fa-plus-circle"></i>Thêm phân loại</a></div>
+
+        </div>
+         
+    </div>
+
 </div>
 <button type="button" id="btnSave" class="btn btn-success">Thêm</button>
 
@@ -25,28 +63,98 @@
                 SaveData();
             });
 
+            $('#upload').on('change', function() {
+                // statusEditAva = 1;
+                if (typeof (FileReader) != "undefined") {
+                    var dvPreview = $("#dvPreview");
+                    dvPreview.html("");
+                    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                    var index = 0;
+                    $($(this)[0].files).each(function() {
+                        var file = $(this);
+                        if (regex.test(file[0].name.toLowerCase())) {
+                            var reader = new FileReader();
+                            reader.onload = function(e) {
+                                var img = $("<img class='img_" + index + "'/> <span id='span_img_" + index + "'><a onclick='RemoveProductImage(" + index + ")'>Xóa</a></span> <br/>");
+                                img.attr("style", "height:250px;width: 250px");
+                                img.attr("src", e.target.result);
+                                //  console.log(e.target.result);
+                                dvPreview.append(img);
+                                index++;
+                            }
+                            reader.readAsDataURL(file[0]);
+                        } else {
+                            alert(file[0].name + " is not a valid image file.");
+                            dvPreview.html("");
+                            return false;
+                        }
+
+
+                    });
+                    $("#divAddMoreImage").show();
+                } else {
+                    alert("This browser does not support HTML5 FileReader.");
+                }
+            });
+
+
+
         });
+
+        function ProductClassify_Add() {
+            var index_count = [];
+            $(".ProductClassify .row").each(function(index, value) {
+                index_count.push(index);
+            });
+            console.log(index_count.length);
+            var item_index = index_count.length;
+            console.log("item_index:" + item_index);
+            var html = "";
+            html += "<div class=\"row\">";
+            html += "  <div class=\"col-md-2\"><input type=\"text\" id=\"txtAttributeName_" + item_index + "\" value=\"\" class=\"form-control\" placeholder=\"Tên phân loại\" /></div>";
+            html += "   <div class=\"col-md-2\"><input type=\"text\" id=\"txtQuantity_" + item_index + "\" value=\"\" class=\"form-control\" placeholder=\"Số lượng\" /></div>";
+            html += "  <div class=\"col-md-2\"><input type=\"text\" id=\"txtPrice_" + item_index + "\" value=\"\" class=\"form-control\" placeholder=\"giá\" /></div>";
+            html += "   <div class=\"col-md-2\"><input type=\"text\" id=\"txtPriceSale_" + item_index + "\" value=\"\" class=\"form-control\" placeholder=\"giá sale\" /></div>";
+            html += "  <div class=\"col-md-2\"><a style=\"cursor:pointer;\" onclick=\"ProductClassify_Add()\"><i class=\"fa fa-plus-circle\"></i>Thêm phân loại</a></div>";
+            html += "  </div>";
+            $(".ProductClassify").append(html);
+        }
 
         function SaveData() {
 
             debugger;
-            var name = $("#txtBookname").val();
+            var name = $("#txtProducName").val();
             if (name == null || name == "") {
-                alert("Book Name không được trống!");
+                alert("book name không được trống!");
                 return;
             }
+            var attributes = "";
 
-             var param = {
-                 bookName:name
+            $(".ProductClassify .row").each(function(index, value) {
+                var ProductClassifyName = $("#txtAttributeName_" + index).val();
+                var ProductClassifyQ = $("#txtQuantity_" + index).val();
+                var ProductClassifyPrice = $("#txtPrice_" + index).val();
+                var ProductClassifySalePrice = $("#txtPriceSale_" + index).val();
+
+                attributes += ProductClassifyName + "," + ProductClassifyQ + "," + ProductClassifyPrice + "," + ProductClassifySalePrice + "_";
+
+            });
+
+            attributes = attributes != "" ? attributes.substr(0, attributes.length - 1) : attributes;
+            console.log("attributes:" + attributes);
+            var param = {
+                CategoryId: 0,
+                ProductName:name,
+                AttributeValues:attributes,
             };
 
             $.ajax({
                 type: 'POST',
-                url: "/Home/SaveBook",
+                url: "/Home/SaveProduct",
                 data: param,
                 async: true,
-               // dataType: "html",
-                dataType:"json",
+                // dataType: "html",
+                dataType: "json",
                 success: function(rs) {
                     if (rs.responseCode > 0) {
 
