@@ -52,10 +52,18 @@ namespace WebMVC_NetCore.Controllers
         }
 
         [HttpPost]
-        public ActionResult DemoLoadAjaxView()
+        public async Task<ActionResult> DemoLoadAjaxView()
         {
-            var model = new List<BookModels>();
-            model = GetBooks();
+            var model = new List<Product>();
+            try
+            {
+                model = await new EBook.DataAccess.NetCore.Services.ProductServices().ProductGetList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
 
             return PartialView(model);
         }
@@ -75,7 +83,7 @@ namespace WebMVC_NetCore.Controllers
 
                 var rs = await new EBook.DataAccess.NetCore.Services.ProductServices().ProductInsertUpdate(requestData);
 
-               
+
                 model.ResponseCode = rs.ReturnCode;
                 model.ResponseMessage = rs.ReturnMsg;
                 return Json(model);
@@ -89,6 +97,75 @@ namespace WebMVC_NetCore.Controllers
             return Json(model);
         }
 
+
+        public async Task<JsonResult> Product_Delete(Product_DeleteRequestData requestData)
+        {
+            var model = new BookDeleteResponse();
+            try
+            {
+                if (requestData == null || requestData.ProductID <= 0)
+                {
+                    model.ResponseCode = -1;
+                    model.ResponseMessage = "Id sản phẩm không hợp lệ";
+                    return Json(model);
+                }
+
+                var rs = await new EBook.DataAccess.NetCore.Services.ProductServices().Product_Delete(requestData);
+
+                if (rs.ReturnCode <= 0)
+                {
+                    model.ResponseCode = rs.ReturnCode;
+                    model.ResponseMessage = rs.ReturnMsg;
+                    return Json(model);
+                }
+
+                model.ResponseCode = 1;
+                model.ResponseMessage = "Xóa sản phẩm thành công!";
+                return Json(model);
+            }
+            catch (Exception ex)
+            {
+
+                model.ResponseCode = -969;
+                model.ResponseMessage = "Hệ thống đang bận!";
+                return Json(model);
+            }
+        }
+
+        public async Task<JsonResult> Product_Buy(OrdersCreateRequestData requestData)
+        {
+
+            var model = new BookDeleteResponse();
+            try
+            {
+                if (requestData == null || requestData.TotalAmount <= 0)
+                {
+                    model.ResponseCode = -1;
+                    model.ResponseMessage = "Id sản phẩm không hợp lệ";
+                    return Json(model);
+                }
+
+                var rs = await new EBook.DataAccess.NetCore.Services.OrderServices().Order_Create(requestData);
+
+                if (rs.ReturnCode <= 0)
+                {
+                    model.ResponseCode = rs.ReturnCode;
+                    model.ResponseMessage = rs.ReturnMsg;
+                    return Json(model);
+                }
+
+                model.ResponseCode = 1;
+                model.ResponseMessage = "Mua sản phẩm thành công!";
+                return Json(model);
+            }
+            catch (Exception ex)
+            {
+
+                model.ResponseCode = -969;
+                model.ResponseMessage = "Hệ thống đang bận!";
+                return Json(model);
+            }
+        }
         public IActionResult Privacy()
         {
             return View();

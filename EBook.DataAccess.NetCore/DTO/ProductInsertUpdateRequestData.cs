@@ -14,4 +14,9 @@ namespace EBook.DataAccess.NetCore.DTO
 
         public string AttributeValues { get; set; } // 256 lit -den , 10 , 1000 , 9000 _ 236 lit -den , 15 , 1200 , 10000  
     }
+
+    public class Product_DeleteRequestData
+    {
+        public int ProductID { get; set; }
+    }
 }

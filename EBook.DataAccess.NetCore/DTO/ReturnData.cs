@@ -21,4 +21,12 @@ namespace EBook.DataAccess.NetCore.DTO
     {
         public Product product { get; set; }
     }
+
+    public class Product_DeleteReturnData : ReturnData
+    {
+    }
+
+    public class Order_CreateReturnData : ReturnData
+    {
+    }
 }

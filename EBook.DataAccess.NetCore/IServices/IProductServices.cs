@@ -11,5 +11,7 @@ namespace EBook.DataAccess.NetCore.IServices
     {
         Task<List<Product>> ProductGetList();
         Task<ProductInsertReturnData> ProductInsertUpdate(ProductInsertUpdateRequestData requestData);
+
+        Task<Product_DeleteReturnData> Product_Delete(Product_DeleteRequestData requestData);
     }
 }

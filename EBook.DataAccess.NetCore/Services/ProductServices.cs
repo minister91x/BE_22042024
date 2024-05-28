@@ -14,9 +14,25 @@ namespace EBook.DataAccess.NetCore.Services
         EBookDBContext _eBookDBContext = new EBookDBContext();
         public async Task<List<Product>> ProductGetList()
         {
+            var list = new List<Product>();
             try
             {
-                return _eBookDBContext.product.ToList();
+                var listProduct = _eBookDBContext.product.ToList();
+                foreach (var item in listProduct)
+                {
+                    // lấy attribute theo productId 
+                    var p_attr = _eBookDBContext.productAttribute.ToList().FindAll(x => x.ProductID == item.ProductID);
+
+                    var product = new Product();
+                    product.productAttributes = p_attr;
+                    product.ProductID = item.ProductID;
+                    product.ProductName = item.ProductName;
+                    
+                    list.Add(product);
+
+                }
+
+                return list;
             }
             catch (Exception ex)
             {
@@ -52,7 +68,7 @@ namespace EBook.DataAccess.NetCore.Services
                 // check trùng 
 
                 var product = _eBookDBContext.product.Where(s => s.ProductName == requestData.ProductName).FirstOrDefault();
-                if (product != null || product.ProductID > 0)
+                if (product != null || product?.ProductID > 0)
                 {
                     returnData.ReturnCode = -2;
                     returnData.ReturnMsg = "Tên sản phẩm đã tồn tại";
@@ -86,19 +102,19 @@ namespace EBook.DataAccess.NetCore.Services
 
                     // kiểm tra xem null 
 
-                    if (string.IsNullOrEmpty(attr_name) )
+                    if (string.IsNullOrEmpty(attr_name))
                     {
                         errItem += "tên thuộc tính bị trống hoặc không hợp lệ ";
                         continue;
                     }
 
-                    if (string.IsNullOrEmpty(attr_quantity) )
+                    if (string.IsNullOrEmpty(attr_quantity))
                     {
                         errItem += "thuộc tính số lượng bị trống";
                         continue;
                     }
 
-                    if (string.IsNullOrEmpty(attr_price) )
+                    if (string.IsNullOrEmpty(attr_price))
                     {
                         errItem += " thuộc tính giá bị trống";
                         continue;
@@ -132,6 +148,37 @@ namespace EBook.DataAccess.NetCore.Services
             catch (Exception ex)
             {
 
+                returnData.ReturnCode = -969;
+                returnData.ReturnMsg = "Hệ thống đang bận!";
+                return returnData;
+            }
+        }
+
+        public async Task<Product_DeleteReturnData> Product_Delete(Product_DeleteRequestData requestData)
+        {
+            var returnData = new Product_DeleteReturnData();
+            try
+            {
+                // cần kiểm tra xem id muốn xóa có tồn tại không
+                var product = _eBookDBContext.product.Where(s => s.ProductID == requestData.ProductID).FirstOrDefault();
+
+                if (product == null || product?.ProductID <= 0)
+                {
+                    returnData.ReturnCode = -1;
+                    returnData.ReturnMsg = "Sản phẩm cần xóa không có trên hệ thống";
+                    return returnData;
+                }
+
+
+                _eBookDBContext.product.Remove(product);
+                _eBookDBContext.SaveChangesAsync();
+
+                returnData.ReturnCode = 1;
+                returnData.ReturnMsg = "Xóa sản phẩm thành công";
+                return returnData;
+            }
+            catch (Exception ex)
+            {
                 returnData.ReturnCode = -969;
                 returnData.ReturnMsg = "Hệ thống đang bận!";
                 return returnData;
