@@ -14,7 +14,7 @@ namespace WebMVC_NetCore.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index(int id)
+        public IActionResult Index(int? id)
         {
             var model = new List<BookModels>();
 
