@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BE_2204.Common\BE_2204.Common.csproj" />
     <ProjectReference Include="..\EBook.DataAccess.NetCore\EBook.DataAccess.NetCore.csproj" />
   </ItemGroup>
 

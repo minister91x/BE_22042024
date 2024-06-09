@@ -1,0 +1,12 @@
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.Common\bin\Debug\net6.0\BE_2204.Common.deps.json
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.Common\bin\Debug\net6.0\BE_2204.Common.dll
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.Common\bin\Debug\net6.0\BE_2204.Common.pdb
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.Common\obj\Debug\net6.0\BE_2204.Common.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.Common\obj\Debug\net6.0\BE_2204.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.Common\obj\Debug\net6.0\BE_2204.Common.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.Common\obj\Debug\net6.0\BE_2204.Common.AssemblyInfo.cs
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.Common\obj\Debug\net6.0\BE_2204.Common.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.Common\obj\Debug\net6.0\BE_2204.Common.dll
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.Common\obj\Debug\net6.0\refint\BE_2204.Common.dll
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.Common\obj\Debug\net6.0\BE_2204.Common.pdb
+C:\Users\Admin\source\repos\BE_22042024\BE_2204.Common\obj\Debug\net6.0\ref\BE_2204.Common.dll

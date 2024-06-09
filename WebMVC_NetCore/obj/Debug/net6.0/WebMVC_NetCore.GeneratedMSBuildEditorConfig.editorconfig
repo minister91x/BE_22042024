@@ -15,6 +15,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Admin\source\repos\BE_22042024\WebMVC_NetCore
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Admin/source/repos/BE_22042024/WebMVC_NetCore/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/source/repos/BE_22042024/WebMVC_NetCore/Views/Account/View.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxWaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Admin/source/repos/BE_22042024/WebMVC_NetCore/Views/Home/DemoLoadAjaxView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZW1vTG9hZEFqYXhWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -50,3 +58,7 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/Admin/source/repos/BE_22042024/WebMVC_NetCore/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-9zpc00mqht
+
+[C:/Users/Admin/source/repos/BE_22042024/WebMVC_NetCore/Views/Shared/_LoginLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-bd258xqaxm

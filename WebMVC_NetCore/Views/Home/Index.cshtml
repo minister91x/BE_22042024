@@ -7,62 +7,102 @@
         margin-top: 5px;
     }
 </style>
-<div class="text-center">
-    <h1 class="display-4">Welcome111</h1>
-</div>
 
-<div class="row">
-    <div class="form-group">
-        <label for="email">ProductName:</label>
-        <input type="email" class="form-control" id="txtProducName">
-    </div>
 
-    <div class="form-group" style="padding-bottom: 60px;">
-        <label for="Title" class="control-label col-md-3">Ảnh sản phẩm:<span class="required">*</span></label>
-        <div class="col-md-6">
-            <div class="input-icon right">
-                <input id="upload" class="form-control" type="file" name="upload" accept="image/*" multiple="multiple" />
-                <p style="color:red">Chọn từ 1 - 3 ảnh sản phẩm</p>
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Quản lý sản phầm</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">sản phẩm</li>
+                </ol>
             </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="email">Danh mục:</label>
-        <select class="form-control" id="ddlCategoryID">
-            <option value="1">Đồ điện tử</option>
-            <option value="2">Đồ gia dụng</option>
-        </select>
-    </div>
+    </div><!-- /.container-fluid -->
+</section>
 
-    <div class="form-group">
-        <label for="Title" class="control-label col-md-3">ảnh đã chọn:<span class="required">*</span></label>
-        <div class="col-md-6">
-            <div class="input-icon right">
+<section class="content">
+    <div class="container-fluid">
+        <div class="row row_marging">
+            <div class="col-md-4 row_marging"><input type="text" id="txtAttributeName_0" value="" class="form-control" placeholder="Tên phân loại" /></div>
+            <div class="col-md-4 row_marging"><input type="text" id="txtQuantity_0" value="" class="form-control" placeholder="Số lượng" /></div>
+            <div class="col-md-4 row_marging"><input type="text" id="txtPrice_0" value="" class="form-control" placeholder="giá" /></div>
+        </div>
+        <div class="row row_marging">
+            <div class="col-md-12 row_marging">
+
+                <button type="button" class="btn btn-success"> <i class="fa fa-plus"></i>Thêm mới </button>
+                <button type="button" class="btn btn-default"> <i class="fa fa-search"></i>Tìm kiếm </button>
+            </div>
+        </div>
+        <div class="row row_marging">
+            <div class="col-md-12">
+
+                <h2 class="card-title">Danh sách sản phẩm</h2>
+                @* <div class="form-group">
+                <label for="email">ProductName:</label>
+                <input type="email" class="form-control" id="txtProducName">
+                </div>
+
+                <div class="form-group" style="padding-bottom: 60px;">
+                <label for="Title" class="control-label col-md-3">Ảnh sản phẩm:<span class="required">*</span></label>
+                <div class="col-md-6">
+                <div class="input-icon right">
+                <input id="upload" class="form-control" type="file" name="upload" accept="image/*" multiple="multiple" />
+                <p style="color:red">Chọn từ 1 - 3 ảnh sản phẩm</p>
+                </div>
+                </div>
+                </div>
+                <div class="form-group">
+                <label for="email">Danh mục:</label>
+                <select class="form-control" id="ddlCategoryID">
+                <option value="1">Đồ điện tử</option>
+                <option value="2">Đồ gia dụng</option>
+                </select>
+                </div>
+
+                <div class="form-group">
+                <label for="Title" class="control-label col-md-3">ảnh đã chọn:<span class="required">*</span></label>
+                <div class="col-md-6">
+                <div class="input-icon right">
                 <div id="dvPreview">
                 </div>
                 <div id="divAddMoreImage" style="display:none;">
-                    <input type="file" id="fileaddMore" style="display:none">
-                    <a style="cursor:pointer;" onclick="openFileOption();"><i class="fa fa-plus-circle"></i>Thêm ảnh</a>
+                <input type="file" id="fileaddMore" style="display:none">
+                <a style="cursor:pointer;" onclick="openFileOption();"><i class="fa fa-plus-circle"></i>Thêm ảnh</a>
                 </div>
+                </div>
+                </div>
+                </div>
+                <div class="ProductClassify">
+                <div class="row">
+                <div class="col-md-2"><input type="text" id="txtAttributeName_0" value="" class="form-control" placeholder="Tên phân loại" /></div>
+                <div class="col-md-2"><input type="text" id="txtQuantity_0" value="" class="form-control" placeholder="Số lượng" /></div>
+                <div class="col-md-2"><input type="text" id="txtPrice_0" value="" class="form-control" placeholder="giá" /></div>
+                <div class="col-md-2"><input type="text" id="txtPriceSale_0" value="" class="form-control" placeholder="giá sale" /></div>
+                <div class="col-md-2"><a style="cursor:pointer;" onclick="ProductClassify_Add()"><i class="fa fa-plus-circle"></i>Thêm phân loại</a></div>
+
+                </div>
+
+                </div>
+                <div class="form-group">
+                <button type="button" id="btnSave" class="btn btn-success">Thêm</button>
+                </div>*@
+
+
+                <div id="Test_PartialView"></div>
             </div>
         </div>
-    </div>
-    <div class="ProductClassify">
-        <div class="row">
-            <div class="col-md-2"><input type="text" id="txtAttributeName_0" value="" class="form-control" placeholder="Tên phân loại" /></div>
-            <div class="col-md-2"><input type="text" id="txtQuantity_0" value="" class="form-control" placeholder="Số lượng" /></div>
-            <div class="col-md-2"><input type="text" id="txtPrice_0" value="" class="form-control" placeholder="giá" /></div>
-            <div class="col-md-2"><input type="text" id="txtPriceSale_0" value="" class="form-control" placeholder="giá sale" /></div>
-            <div class="col-md-2"><a style="cursor:pointer;" onclick="ProductClassify_Add()"><i class="fa fa-plus-circle"></i>Thêm phân loại</a></div>
+    </div><!-- /.container-fluid -->
+</section>
 
-        </div>
 
-    </div>
 
-</div>
-<button type="button" id="btnSave" class="btn btn-success">Thêm</button>
-
-<div id="Test_PartialView"></div>
 
 @section Scripts{
     <script>
@@ -268,7 +308,7 @@
                 dataType: "json",
                 success: function(rs) {
                     if (rs.responseCode > 0) {
-                      
+
                     }
                     alert(rs.responseMessage);
                 },
