@@ -9,14 +9,15 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
 // Add services to the container.
-//builder.Services.AddDbContext<EBookDBContext>(options =>
-//               options.UseSqlServer(configuration.GetConnectionString("ConnStr")));
+builder.Services.AddDbContext<EBookDBContext>(options =>
+               options.UseSqlServer(configuration.GetConnectionString("ConnStr")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IBookServices, BookServices>();
+builder.Services.AddScoped<IProductServices, ProductServices>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

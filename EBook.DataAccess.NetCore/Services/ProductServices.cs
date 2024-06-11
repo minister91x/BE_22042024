@@ -11,7 +11,12 @@ namespace EBook.DataAccess.NetCore.Services
 {
     public class ProductServices : IProductServices
     {
-        EBookDBContext _eBookDBContext = new EBookDBContext();
+        EBookDBContext _eBookDBContext;
+        public ProductServices(EBookDBContext eBookDBContext)
+        {
+            _eBookDBContext = eBookDBContext;
+        }
+
         public async Task<List<Product>> ProductGetList()
         {
             var list = new List<Product>();

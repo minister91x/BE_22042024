@@ -10,10 +10,12 @@ namespace EBook.DataAccess.NetCore.DBContext
 {
     public class EBookDBContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-IFRSV3F;Initial Catalog=BE_22042024;Integrated Security=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;TrustServerCertificate=True");
-        }
+        public EBookDBContext(DbContextOptions options) : base(options) { }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //   /// optionsBuilder.UseSqlServer("Data Source=DESKTOP-IFRSV3F;Initial Catalog=BE_22042024;Integrated Security=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;TrustServerCertificate=True");
+        //}
         public virtual DbSet<Book> book {get;set;}
 
         public virtual DbSet<Product> product { get; set; }

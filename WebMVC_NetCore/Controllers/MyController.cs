@@ -1,6 +1,7 @@
 ﻿using EBook.DataAccess.NetCore.DTO;
 using Microsoft.AspNetCore.Mvc;
 using WebMVC_NetCore.Filter;
+using WebMVC_NetCore.Models;
 
 namespace WebMVC_NetCore.Controllers
 {
@@ -21,6 +22,9 @@ namespace WebMVC_NetCore.Controllers
             var myconection = _configuration["URL:myUrl"] ?? "";
           
             var returndata = new ReturnData();
+
+           /// var classA = new ClassA(); // Dependency 
+
             return View(myconection);
         }
 

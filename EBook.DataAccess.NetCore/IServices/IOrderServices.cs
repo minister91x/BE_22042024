@@ -9,6 +9,6 @@ namespace EBook.DataAccess.NetCore.IServices
 {
     public interface IOrderServices
     {
-        Task<Order_CreateReturnData> Order_Create(OrdersCreateRequestData requestData);
+        //Task<Order_CreateReturnData> Order_Create(OrdersCreateRequestData requestData);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using EBook.DataAccess.NetCore.DTO;
+using EBook.DataAccess.NetCore.IServices;
 using EBook.DataAccess.NetCore.Services;
 using Microsoft.AspNetCore.Mvc;
 using WebMVC_NetCore.Models;
@@ -8,10 +9,11 @@ namespace WebMVC_NetCore.Controllers
     public class AccountController : Controller
     {
         readonly IConfiguration _configuration;
-
-        public AccountController(IConfiguration configuration)
-        {
+        readonly IAccountServices _accountServices;
+        public AccountController(IConfiguration configuration, IAccountServices accountServices)
+        {// Dependency Contructor
             _configuration = configuration;
+            _accountServices = accountServices;
         }
         public IActionResult Index()
         {
@@ -43,10 +45,12 @@ namespace WebMVC_NetCore.Controllers
 
                 requestData.password = passwordHash;
 
-                var result = await new AccountServices().Account_Login(requestData);
+               // var result = await new AccountServices().Account_Login(requestData);
+                
+               // var result = await _accountServices.Account_Login(requestData);
 
-                returnData.ReturnCode = result.ReturnCode;
-                returnData.ReturnMsg = result.ReturnMsg;
+              //  returnData.ReturnCode = result.ReturnCode;
+                //returnData.ReturnMsg = result.ReturnMsg;
             }
             catch (Exception ex)
             {

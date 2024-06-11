@@ -14,11 +14,11 @@ namespace BE_22042024.Controllers
             _bookServices = bookServices;
         }
 
-        [HttpGet]
-        public async Task<ActionResult> GetBooks()
-        {
-            var list = _bookServices.GetBooks();
-            return Ok(list);
-        }
+        //[HttpGet]
+        //public async Task<ActionResult> GetBooks()
+        //{
+        //    var list = _bookServices.GetBooks();
+        //    return Ok(list);
+        //}
     }
 }
