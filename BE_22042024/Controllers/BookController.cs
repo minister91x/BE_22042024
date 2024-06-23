@@ -1,4 +1,5 @@
-﻿using EBook.DataAccess.NetCore.IServices;
+﻿using EBook.DataAccess.NetCore.DTO;
+using EBook.DataAccess.NetCore.IServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,11 +15,11 @@ namespace BE_22042024.Controllers
             _bookServices = bookServices;
         }
 
-        //[HttpGet]
-        //public async Task<ActionResult> GetBooks()
-        //{
-        //    var list = _bookServices.GetBooks();
-        //    return Ok(list);
-        //}
+        [HttpPost("GetBooks")]
+        public async Task<ActionResult> GetBooks(GetBooksRequuestData requuestData)
+        {
+            var list = _bookServices.GetBooks(requuestData);
+            return Ok(list);
+        }
     }
 }

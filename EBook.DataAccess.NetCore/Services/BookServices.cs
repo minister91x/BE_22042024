@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,204 +14,238 @@ namespace EBook.DataAccess.NetCore.Services
 {
     public class BookServices : IBookServices
     {
-      //  EBookDBContext _eBookDBContext = new EBookDBContext();
+        EBookDBContext _eBookDBContext;
+        public BookServices(EBookDBContext eBookDBContext)
+        {
+            _eBookDBContext = eBookDBContext;
+        }
 
-        //public async Task<BookInsertReturnData> ADO_Book_Insert(Book bookInput)
-        //{
-        //    var returnData = new BookInsertReturnData();
-        //    try
-        //    {
-        //        // kiểm tra đầu vào 
-        //        if (bookInput == null
-        //            || string.IsNullOrEmpty(bookInput.BookName))
-        //        {
-        //            returnData.ReturnCode = (int)Eshop.Common.Enum_ReturnCode.DataInValid;
-        //            returnData.ReturnMsg = "Dữ liệu đầu vào không hợp lệ ";
-        //            return returnData;
-        //        }
+        public async Task<BookInsertReturnData> ADO_Book_Insert(Book bookInput)
+        {
+            var returnData = new BookInsertReturnData();
+            try
+            {
+                // kiểm tra đầu vào 
+                if (bookInput == null
+                    || string.IsNullOrEmpty(bookInput.BookName))
+                {
+                    returnData.ReturnCode = (int)Eshop.Common.Enum_ReturnCode.DataInValid;
+                    returnData.ReturnMsg = "Dữ liệu đầu vào không hợp lệ ";
+                    return returnData;
+                }
 
-        //        // Bước 1: Mở connection đến DB
-        //        var connect = Eshop.Common.DbHelper.GetSqlConnection();
+                // Bước 1: Mở connection đến DB
+                var connect = Eshop.Common.DbHelper.GetSqlConnection();
 
-        //        // Bước 2: Sử dụng Sqlcommand để thao tác
+                // Bước 2: Sử dụng Sqlcommand để thao tác
 
-        //        var cmd = new SqlCommand("SP_BookInsert", connect);
-        //        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                var cmd = new SqlCommand("SP_BookInsert", connect);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-        //        //var cmdText = new SqlCommand("Select * from Book whew bookid=1=1", connect);
-        //        //cmd.CommandType = System.Data.CommandType.Text;
+                //var cmdText = new SqlCommand("Select * from Book whew bookid=1=1", connect);
+                //cmd.CommandType = System.Data.CommandType.Text;
 
-        //        //KIỂU COMMAND mà muốn dùng TEXT VÀ STORE
+                //KIỂU COMMAND mà muốn dùng TEXT VÀ STORE
 
-        //        // Bước 3: thêm tham số 
-        //        cmd.Parameters.AddWithValue("@BookName", bookInput.BookName);
-        //        cmd.Parameters.AddWithValue("@PublishDate", bookInput.PublishDate);
-        //        cmd.Parameters.AddWithValue("@AuthorID", bookInput.AuthorID);
-        //        cmd.Parameters.AddWithValue("@CategoryID", bookInput.CategoryID);
-        //        cmd.Parameters.AddWithValue("@Price", bookInput.Price);
-        //        cmd.Parameters.AddWithValue("@Quantity", bookInput.Quantity);
-        //        cmd.Parameters.AddWithValue("@ResponseCode", SqlDbType.Int).Direction = ParameterDirection.Output;
+                // Bước 3: thêm tham số 
+                cmd.Parameters.AddWithValue("@BookName", bookInput.BookName);
+                cmd.Parameters.AddWithValue("@PublishDate", bookInput.PublishDate);
+                cmd.Parameters.AddWithValue("@AuthorID", bookInput.AuthorID);
+                cmd.Parameters.AddWithValue("@CategoryID", bookInput.CategoryID);
+                cmd.Parameters.AddWithValue("@Price", bookInput.Price);
+                cmd.Parameters.AddWithValue("@Quantity", bookInput.Quantity);
+                cmd.Parameters.AddWithValue("@ResponseCode", SqlDbType.Int).Direction = ParameterDirection.Output;
 
-        //        // Bước 4: Nhận kết quả 
-        //        cmd.ExecuteNonQuery();
-
-
-        //        var rs = cmd.Parameters["@ResponseCode"].Value != DBNull.Value ?
-        //            Convert.ToInt32(cmd.Parameters["@ResponseCode"].Value) : 0;
-
-        //        if (rs < 0)
-        //        {
-        //            returnData.ReturnCode = (int)Eshop.Common.Enum_ReturnCode.Fail;
-        //            returnData.ReturnMsg = "Thêm dữ liệu thất bại";
-        //            return returnData;
-        //        }
+                // Bước 4: Nhận kết quả 
+                cmd.ExecuteNonQuery();
 
 
-        //        returnData.ReturnCode = rs;
-        //        returnData.ReturnMsg = "Thêm dữ liệu thành công!";
-        //        returnData.book = bookInput;
-        //        return returnData;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        returnData.ReturnCode = (int)Eshop.Common.Enum_ReturnCode.Exception;
-        //        returnData.ReturnMsg = ex.Message;
-        //        return returnData;
-        //    }
-        //}
+                var rs = cmd.Parameters["@ResponseCode"].Value != DBNull.Value ?
+                    Convert.ToInt32(cmd.Parameters["@ResponseCode"].Value) : 0;
 
-        //public async Task<List<Book>> ADO_GetBooks(GetBookRequestData requestData)
-        //{
-        //    var list = new List<Book>();
-        //    try
-        //    {
-        //        // Bước 1: Mở connection đến DB
-        //        var connect = Eshop.Common.DbHelper.GetSqlConnection();
+                if (rs < 0)
+                {
+                    returnData.ReturnCode = (int)Eshop.Common.Enum_ReturnCode.Fail;
+                    returnData.ReturnMsg = "Thêm dữ liệu thất bại";
+                    return returnData;
+                }
 
-        //        // Bước 2: Sử dụng Sqlcommand để thao tác
 
-        //        var cmd = new SqlCommand("SP_Book_GetAll", connect);
-        //        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                returnData.ReturnCode = rs;
+                returnData.ReturnMsg = "Thêm dữ liệu thành công!";
+                returnData.book = bookInput;
+                return returnData;
+            }
+            catch (Exception ex)
+            {
+                returnData.ReturnCode = (int)Eshop.Common.Enum_ReturnCode.Exception;
+                returnData.ReturnMsg = ex.Message;
+                return returnData;
+            }
+        }
 
-        //        // Bước 3: gán giá trị cho các parammeter 
-        //        cmd.Parameters.AddWithValue("@BookName", requestData.BookName);
+        public async Task<List<Book>> ADO_GetBooks(GetBookRequestData requestData)
+        {
+            var list = new List<Book>();
+            try
+            {
+                // Bước 1: Mở connection đến DB
+                var connect = Eshop.Common.DbHelper.GetSqlConnection();
 
-        //        // Bước 4: nhận kết quá 
-        //        var reader = cmd.ExecuteReader();
+                // Bước 2: Sử dụng Sqlcommand để thao tác
 
-        //        while (reader.Read())
-        //        {
-        //            var book = new Book
-        //            {
-        //                BookID = reader["BookID"] != null ? Convert.ToInt32(reader["BookID"]) : 0,
-        //                BookName = reader["BookName"] != null ? Convert.ToString(reader["BookName"]) : String.Empty,
-        //                Price = reader["Price"] != null ? Convert.ToInt32(reader["Price"]) : 0,
-        //                Quantity = reader["Quantity"] != null ? Convert.ToInt32(reader["Quantity"]) : 0,
-        //            };
+                var cmd = new SqlCommand("SP_Book_GetAll", connect);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-        //            list.Add(book);
-        //        }
+                // Bước 3: gán giá trị cho các parammeter 
+                cmd.Parameters.AddWithValue("@BookName", requestData.BookName);
 
-        //        return list;
+                // Bước 4: nhận kết quá 
+                var reader = cmd.ExecuteReader();
 
-        //    }
-        //    catch (Exception ex)
-        //    {
+                while (reader.Read())
+                {
+                    var book = new Book
+                    {
+                        BookID = reader["BookID"] != null ? Convert.ToInt32(reader["BookID"]) : 0,
+                        BookName = reader["BookName"] != null ? Convert.ToString(reader["BookName"]) : String.Empty,
+                        Price = reader["Price"] != null ? Convert.ToInt32(reader["Price"]) : 0,
+                        Quantity = reader["Quantity"] != null ? Convert.ToInt32(reader["Quantity"]) : 0,
+                    };
 
-        //        throw;
-        //    }
-        //}
+                    list.Add(book);
+                }
 
-        //public async Task<BookInsertReturnData> Book_Insert(Book bookInput)
-        //{
-        //    var returnData = new BookInsertReturnData();
-        //    try
-        //    {
-        //        // kiểm tra đầu vào 
-        //        if (bookInput == null
-        //            || string.IsNullOrEmpty(bookInput.BookName))
-        //        {
-        //            returnData.ReturnCode = (int)Eshop.Common.Enum_ReturnCode.DataInValid;
-        //            returnData.ReturnMsg = "Dữ liệu đầu vào không hợp lệ ";
-        //            return returnData;
-        //        }
+                return list;
 
-        //        // kiểm tra trùng 
-        //        var currentBook = _eBookDBContext.book.ToList().Where(s => s.BookName == bookInput.BookName).FirstOrDefault();
-        //        if (currentBook != null)
-        //        {
-        //            if (currentBook.BookName == bookInput.BookName
-        //                && currentBook.PublishDate.ToString("dd/MM/yyy")
-        //                == bookInput.PublishDate.ToString("dd/MM/yyy"))
-        //            {
-        //                returnData.ReturnCode = (int)Eshop.Common.Enum_ReturnCode.DuplicateData;
-        //                returnData.ReturnMsg = "Sách này đã tồn tại trên hệ thống";
-        //                return returnData;
-        //            }
+            }
+            catch (Exception ex)
+            {
 
-        //        }
-        //        _eBookDBContext.book.Add(bookInput);
-        //        var result = _eBookDBContext.SaveChanges();
+                throw;
+            }
+        }
 
-        //        returnData.ReturnCode = (int)Eshop.Common.Enum_ReturnCode.Success;
-        //        returnData.ReturnMsg = "Thêm dữ liệu thành công";
-        //        returnData.book = bookInput;
+        public async Task<BookInsertReturnData> Book_Insert(Book bookInput)
+        {
+            var returnData = new BookInsertReturnData();
+            try
+            {
+                // kiểm tra đầu vào 
+                if (bookInput == null
+                    || string.IsNullOrEmpty(bookInput.BookName))
+                {
+                    returnData.ReturnCode = (int)Eshop.Common.Enum_ReturnCode.DataInValid;
+                    returnData.ReturnMsg = "Dữ liệu đầu vào không hợp lệ ";
+                    return returnData;
+                }
 
-        //        return returnData;
-        //    }
-        //    catch (Exception ex)
-        //    {
+                // kiểm tra trùng 
+                var currentBook = _eBookDBContext.book.ToList().Where(s => s.BookName == bookInput.BookName).FirstOrDefault();
+                if (currentBook != null)
+                {
+                    if (currentBook.BookName == bookInput.BookName
+                        && currentBook.PublishDate.ToString("dd/MM/yyy")
+                        == bookInput.PublishDate.ToString("dd/MM/yyy"))
+                    {
+                        returnData.ReturnCode = (int)Eshop.Common.Enum_ReturnCode.DuplicateData;
+                        returnData.ReturnMsg = "Sách này đã tồn tại trên hệ thống";
+                        return returnData;
+                    }
 
-        //        throw;
-        //    }
-        //}
+                }
+                _eBookDBContext.book.Add(bookInput);
+                var result = _eBookDBContext.SaveChanges();
 
-        //public async Task<List<Book>> GetBooks()
-        //{
-        //    return _eBookDBContext.book.ToList();
-        //}
+                returnData.ReturnCode = (int)Eshop.Common.Enum_ReturnCode.Success;
+                returnData.ReturnMsg = "Thêm dữ liệu thành công";
+                returnData.book = bookInput;
 
-        //public async Task<List<Book>> GetBook_ByStock(GetBook_ByStockRequestData requestData)
-        //{
-        //    var list = new List<Book>();
-        //    try
-        //    {
-        //        // Bước 1: Mở connection đến DB
-        //        var connect = Eshop.Common.DbHelper.GetSqlConnection();
+                return returnData;
+            }
+            catch (Exception ex)
+            {
 
-        //        // Bước 2: Sử dụng Sqlcommand để thao tác
+                throw;
+            }
+        }
 
-        //        var cmd = new SqlCommand("SP_Book_GetStock", connect);
-        //        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+        public async Task<List<Book>> GetBooks(GetBooksRequuestData requuestData)
+        {
+            var model = new List<Book>();
+            try
+            {
+                
+                var from_date = DateTime.ParseExact(requuestData.publishDateFrom, "dd/MM/yyyy 00:00:00", CultureInfo.InvariantCulture);
+                var to_date = DateTime.ParseExact(requuestData.publishDateTo, "dd/MM/yyyy 23:59:59", CultureInfo.InvariantCulture);
 
-        //        // Bước 3: gán giá trị cho các parammeter 
-        //        cmd.Parameters.AddWithValue("@BookName", requestData.BookName);
+                model = _eBookDBContext.book.ToList();
 
-        //        // Bước 4: nhận kết quá 
-        //        var reader = cmd.ExecuteReader();
+                if (!string.IsNullOrEmpty(requuestData.BookName))
+                {
+                    model = model.FindAll(s => s.BookName.ToLower().Contains(requuestData.BookName.ToLower())).ToList();
+                }
+                if (requuestData.CategoryID > 0)
+                {
+                    model = model.FindAll(s => s.CategoryID == requuestData.CategoryID).ToList();
+                }
 
-        //        while (reader.Read())
-        //        {
-        //            var book = new Book
-        //            {
-        //                BookID = reader["BookID"] != null ? Convert.ToInt32(reader["BookID"]) : 0,
-        //                BookName = reader["BookName"] != null ? Convert.ToString(reader["BookName"]) : String.Empty,
-        //                Price = reader["Price"] != null ? Convert.ToInt32(reader["Price"]) : 0,
-        //                Quantity = reader["Quantity"] != null ? Convert.ToInt32(reader["Quantity"]) : 0,
-        //            };
+                if (requuestData.publishDateTo != null)
+                {
+                    model = model.FindAll(s => s.PublishDate >= from_date
+                    && s.PublishDate <= to_date).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
 
-        //            list.Add(book);
-        //        }
+                throw;
+            }
 
-        //        connect.Close();
-        //        return list;
+            return model;
+        }
 
-        //    }
-        //    catch (Exception ex)
-        //    {
+        public async Task<List<Book>> GetBook_ByStock(GetBook_ByStockRequestData requestData)
+        {
+            var list = new List<Book>();
+            try
+            {
+                // Bước 1: Mở connection đến DB
+                var connect = Eshop.Common.DbHelper.GetSqlConnection();
 
-        //        throw;
-        //    }
-        //}
+                // Bước 2: Sử dụng Sqlcommand để thao tác
+
+                var cmd = new SqlCommand("SP_Book_GetStock", connect);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                // Bước 3: gán giá trị cho các parammeter 
+                cmd.Parameters.AddWithValue("@BookName", requestData.BookName);
+
+                // Bước 4: nhận kết quá 
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var book = new Book
+                    {
+                        BookID = reader["BookID"] != null ? Convert.ToInt32(reader["BookID"]) : 0,
+                        BookName = reader["BookName"] != null ? Convert.ToString(reader["BookName"]) : String.Empty,
+                        Price = reader["Price"] != null ? Convert.ToInt32(reader["Price"]) : 0,
+                        Quantity = reader["Quantity"] != null ? Convert.ToInt32(reader["Quantity"]) : 0,
+                    };
+
+                    list.Add(book);
+                }
+
+                connect.Close();
+                return list;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }

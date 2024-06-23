@@ -57,7 +57,7 @@ namespace WebMVC_NetCore.Controllers
             var model = new List<Product>();
             try
             {
-                model = await new EBook.DataAccess.NetCore.Services.ProductServices().ProductGetList();
+               // model = await new EBook.DataAccess.NetCore.Services.ProductServices().ProductGetList();
             }
             catch (Exception ex)
             {
@@ -81,11 +81,11 @@ namespace WebMVC_NetCore.Controllers
                     return Json(model);
                 }
 
-                var rs = await new EBook.DataAccess.NetCore.Services.ProductServices().ProductInsertUpdate(requestData);
+               // var rs = await new EBook.DataAccess.NetCore.Services.ProductServices().ProductInsertUpdate(requestData);
 
 
-                model.ResponseCode = rs.ReturnCode;
-                model.ResponseMessage = rs.ReturnMsg;
+                model.ResponseCode = 1;
+                model.ResponseMessage = "";
                 return Json(model);
             }
             catch (Exception ex)
@@ -110,14 +110,14 @@ namespace WebMVC_NetCore.Controllers
                     return Json(model);
                 }
 
-                var rs = await new EBook.DataAccess.NetCore.Services.ProductServices().Product_Delete(requestData);
+                //var rs = await new EBook.DataAccess.NetCore.Services.ProductServices().Product_Delete(requestData);
 
-                if (rs.ReturnCode <= 0)
-                {
-                    model.ResponseCode = rs.ReturnCode;
-                    model.ResponseMessage = rs.ReturnMsg;
-                    return Json(model);
-                }
+                //if (rs.ReturnCode <= 0)
+                //{
+                //    model.ResponseCode = rs.ReturnCode;
+                //    model.ResponseMessage = rs.ReturnMsg;
+                //    return Json(model);
+                //}
 
                 model.ResponseCode = 1;
                 model.ResponseMessage = "Xóa sản phẩm thành công!";
@@ -145,14 +145,14 @@ namespace WebMVC_NetCore.Controllers
                     return Json(model);
                 }
 
-                var rs = await new EBook.DataAccess.NetCore.Services.OrderServices().Order_Create(requestData);
+                //var rs = await new EBook.DataAccess.NetCore.Services.OrderServices().Order_Create(requestData);
 
-                if (rs.ReturnCode <= 0)
-                {
-                    model.ResponseCode = rs.ReturnCode;
-                    model.ResponseMessage = rs.ReturnMsg;
-                    return Json(model);
-                }
+                //if (rs.ReturnCode <= 0)
+                //{
+                //    model.ResponseCode = rs.ReturnCode;
+                //    model.ResponseMessage = rs.ReturnMsg;
+                //    return Json(model);
+                //}
 
                 model.ResponseCode = 1;
                 model.ResponseMessage = "Mua sản phẩm thành công!";

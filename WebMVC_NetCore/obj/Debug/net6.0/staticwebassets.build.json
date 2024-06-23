@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zl0TkPjt3mhxY/PoS9VA4WrMd+vqMZkoGrhYn6LT7Fw=",
+  "Hash": "Lq12fi9ALbYkyPea7ZMgbiKcUxzZjvls68KJJYMcpPI=",
   "Source": "WebMVC_NetCore",
   "BasePath": "_content/WebMVC_NetCore",
   "Mode": "Default",
@@ -542,6 +542,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\dist\\css\\alt\\adminlte.plugins.min.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\BE_22042024\\WebMVC_NetCore\\wwwroot\\dist\\css\\sweetalert2@11.js",
+      "SourceId": "WebMVC_NetCore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\BE_22042024\\WebMVC_NetCore\\wwwroot\\",
+      "BasePath": "_content/WebMVC_NetCore",
+      "RelativePath": "dist/css/sweetalert2@11.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\css\\sweetalert2@11.js"
     },
     {
       "Identity": "C:\\Users\\Admin\\source\\repos\\BE_22042024\\WebMVC_NetCore\\wwwroot\\dist\\img\\AdminLTELogo.png",
