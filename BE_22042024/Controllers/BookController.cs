@@ -1,5 +1,6 @@
 ﻿using EBook.DataAccess.NetCore.DTO;
 using EBook.DataAccess.NetCore.IServices;
+using EBook.DataAccess.NetCore.UnitOfWork;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,16 +10,33 @@ namespace BE_22042024.Controllers
     [ApiController]
     public class BookController : ControllerBase
     {
-        private IBookServices _bookServices;
-        public BookController(IBookServices bookServices)
+        //private IBookRepository _bookServices;
+        //public BookController(IBookRepository bookServices)
+        //{
+        //    _bookServices = bookServices;
+        //}
+
+        //private IBookGenericRepository _bookGenericRepository;
+        //public BookController(IBookGenericRepository bookGenericRepository)
+        //{
+        //    _bookGenericRepository = bookGenericRepository;
+        //}
+
+        public IUnitOfWork _unitOfWork;
+        public BookController(IUnitOfWork unitOfWork)
         {
-            _bookServices = bookServices;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpPost("GetBooks")]
         public async Task<ActionResult> GetBooks(GetBooksRequuestData requuestData)
         {
-            var list = _bookServices.GetBooks(requuestData);
+            // var list = _bookServices.GetBooks(requuestData);
+
+            //var list = _bookGenericRepository.GetAll();
+
+            var list = _unitOfWork._bookGenericRepository.GetAll();
+
             return Ok(list);
         }
     }

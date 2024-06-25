@@ -13,6 +13,7 @@ namespace EBook.DataAccess.NetCore.DTO
         public int ProductID { get; set; }
         public int CategoryId { get; set; }
         public string ProductName { get; set; }
+        public string ProductImage { get; set; }
         public List<ProductAttribute> productAttributes { get; set; }
     }
 

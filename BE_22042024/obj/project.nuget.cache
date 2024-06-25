@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "APR+RHapbzEfhuedHFmbHRgKSag7MVQbpa9PwDx7XuaKxZQfJqG8nmstweltuqHvFSnWXimJ2X9p2wJv4nAh5A==",
+  "dgSpecHash": "2BrFDrBQbAwM705rwWIRKpJr0cTIBmko0rFbCUfw50n4B3wnuTMXMD1JFVP9dU9dGkmABJhhtP4eoRlz8FCw3A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\source\\repos\\BE_22042024\\BE_22042024\\BE_22042024.csproj",
   "expectedPackageFiles": [
@@ -35,6 +35,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

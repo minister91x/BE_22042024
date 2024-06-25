@@ -11,7 +11,7 @@ namespace EBook.DataAccess.NetCore.Services
 {
     public class ProductServices : IProductServices
     {
-        EBookDBContext _eBookDBContext;
+       private EBookDBContext _eBookDBContext;
         public ProductServices(EBookDBContext eBookDBContext)
         {
             _eBookDBContext = eBookDBContext;
@@ -52,15 +52,15 @@ namespace EBook.DataAccess.NetCore.Services
             var errItem = string.Empty;
             try
             {
-                if (requestData == null
-                    || requestData.CategoryId == 0
-                    || string.IsNullOrEmpty(requestData.ProductName)
-                    || string.IsNullOrEmpty(requestData.AttributeValues))
-                {
-                    returnData.ReturnCode = -1;
-                    returnData.ReturnMsg = "Dữu liệu không hợp lệ";
-                    return returnData;
-                }
+                //if (requestData == null
+                //    || requestData.CategoryId == 0
+                //    || string.IsNullOrEmpty(requestData.ProductName)
+                //    || string.IsNullOrEmpty(requestData.AttributeValues))
+                //{
+                //    returnData.ReturnCode = -1;
+                //    returnData.ReturnMsg = "Dữu liệu không hợp lệ";
+                //    return returnData;
+                //}
 
                 // check ký tự dặc biêt, 
                 //if (!CommonLibs.ValidationData.CheckContainSpecialChar(requestData.ProductName))
@@ -85,7 +85,8 @@ namespace EBook.DataAccess.NetCore.Services
                 var productReq = new Product
                 {
                     ProductName = requestData.ProductName,
-                    CategoryId = requestData.CategoryId
+                    CategoryId = requestData.CategoryId,
+                    ProductImage = requestData.Base64Image
                 };
 
                 _eBookDBContext.product.Add(productReq);
@@ -93,55 +94,55 @@ namespace EBook.DataAccess.NetCore.Services
                 // lưu thuộc tính 
 
 
-                var attr_count = requestData.AttributeValues.Split('_').Length;
+                //var attr_count = requestData.AttributeValues.Split('_').Length;
 
-                for (int i = 0; i < attr_count; i++)
-                {
-                    var item = requestData.AttributeValues.Split('_')[i];
+                //for (int i = 0; i < attr_count; i++)
+                //{
+                //    var item = requestData.AttributeValues.Split('_')[i];
 
-                    var attr_name = item.Split(',')[0];
-                    var attr_quantity = item.Split(',')[1];
+                //    var attr_name = item.Split(',')[0];
+                //    var attr_quantity = item.Split(',')[1];
 
-                    var attr_price = item.Split(',')[2];
-                    var attr_priceSale = item.Split(',')[3];
+                //    var attr_price = item.Split(',')[2];
+                //    var attr_priceSale = item.Split(',')[3];
 
-                    // kiểm tra xem null 
+                //    // kiểm tra xem null 
 
-                    if (string.IsNullOrEmpty(attr_name))
-                    {
-                        errItem += "tên thuộc tính bị trống hoặc không hợp lệ ";
-                        continue;
-                    }
+                //    if (string.IsNullOrEmpty(attr_name))
+                //    {
+                //        errItem += "tên thuộc tính bị trống hoặc không hợp lệ ";
+                //        continue;
+                //    }
 
-                    if (string.IsNullOrEmpty(attr_quantity))
-                    {
-                        errItem += "thuộc tính số lượng bị trống";
-                        continue;
-                    }
+                //    if (string.IsNullOrEmpty(attr_quantity))
+                //    {
+                //        errItem += "thuộc tính số lượng bị trống";
+                //        continue;
+                //    }
 
-                    if (string.IsNullOrEmpty(attr_price))
-                    {
-                        errItem += " thuộc tính giá bị trống";
-                        continue;
-                    }
+                //    if (string.IsNullOrEmpty(attr_price))
+                //    {
+                //        errItem += " thuộc tính giá bị trống";
+                //        continue;
+                //    }
 
-                    if (string.IsNullOrEmpty(attr_priceSale))
-                    {
-                        errItem += " thuộc tính giá sale bị trống";
-                        continue;
-                    }
+                //    if (string.IsNullOrEmpty(attr_priceSale))
+                //    {
+                //        errItem += " thuộc tính giá sale bị trống";
+                //        continue;
+                //    }
 
-                    var attr_Req = new ProductAttribute
-                    {
-                        AttributeName = attr_name,
-                        Quantity = Convert.ToInt32(attr_quantity),
-                        Price = Convert.ToInt32(attr_price),
-                        PriceSale = Convert.ToInt32(attr_priceSale),
-                    };
+                //    var attr_Req = new ProductAttribute
+                //    {
+                //        AttributeName = attr_name,
+                //        Quantity = Convert.ToInt32(attr_quantity),
+                //        Price = Convert.ToInt32(attr_price),
+                //        PriceSale = Convert.ToInt32(attr_priceSale),
+                //    };
 
-                    _eBookDBContext.Add(attr_Req);
+                //    _eBookDBContext.Add(attr_Req);
 
-                }
+                //}
 
                 _eBookDBContext.SaveChangesAsync();
 

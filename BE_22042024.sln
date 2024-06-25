@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eshop.Common", "Eshop.Commo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebMVC_NetCore", "WebMVC_NetCore\WebMVC_NetCore.csproj", "{47161F16-2F89-4A18-A376-1E4FFA9246F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE_2204.Common", "BE_2204.Common\BE_2204.Common.csproj", "{C5D07FE9-09AB-47E2-B6D2-B9F5701A0181}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BE_2204.Common", "BE_2204.Common\BE_2204.Common.csproj", "{C5D07FE9-09AB-47E2-B6D2-B9F5701A0181}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE_2204.Media", "BE_2204.Media\BE_2204.Media.csproj", "{EBC8C7AA-4630-48B6-A576-E8B630A5E6D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{C5D07FE9-09AB-47E2-B6D2-B9F5701A0181}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5D07FE9-09AB-47E2-B6D2-B9F5701A0181}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5D07FE9-09AB-47E2-B6D2-B9F5701A0181}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBC8C7AA-4630-48B6-A576-E8B630A5E6D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBC8C7AA-4630-48B6-A576-E8B630A5E6D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBC8C7AA-4630-48B6-A576-E8B630A5E6D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBC8C7AA-4630-48B6-A576-E8B630A5E6D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,6 @@
 ﻿using EBook.DataAccess.NetCore.DTO;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Diagnostics;
 using WebMVC_NetCore.Models;
 
@@ -8,10 +9,11 @@ namespace WebMVC_NetCore.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private IConfiguration _configuration;
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _configuration = configuration;
         }
 
         public IActionResult Index(int? id)
@@ -81,7 +83,28 @@ namespace WebMVC_NetCore.Controllers
                     return Json(model);
                 }
 
-               // var rs = await new EBook.DataAccess.NetCore.Services.ProductServices().ProductInsertUpdate(requestData);
+
+                // Bước 1.1 : khai báo API URL
+
+                var baseurl = _configuration["API_URL:URL"] ?? "";
+                var url = "api/Product/ProductInsert";
+
+                // bƯỚC 1.2: tạo json data ( object sang JSON)
+                var jsonData = JsonConvert.SerializeObject(requestData);
+
+                // Bước 1.3 : gọi httpclient bên common để post lên api
+                var result = await BE_2204.Common.HttpHelper.HttpSenPost(baseurl, url, jsonData);
+
+                // Bước 1.4: nhận dữ liệu về 
+                var imageName = "";
+                if (!string.IsNullOrEmpty(result))
+                {
+                    var rs = JsonConvert.DeserializeObject<ReturnData>(result);
+                   
+                }
+
+
+                // var rs = await new EBook.DataAccess.NetCore.Services.ProductServices().ProductInsertUpdate(requestData);
 
 
                 model.ResponseCode = 1;

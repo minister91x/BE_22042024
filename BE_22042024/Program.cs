@@ -2,6 +2,7 @@ using BE_22042024;
 using EBook.DataAccess.NetCore.DBContext;
 using EBook.DataAccess.NetCore.IServices;
 using EBook.DataAccess.NetCore.Services;
+using EBook.DataAccess.NetCore.UnitOfWork;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,8 +17,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddTransient<IBookServices, BookServices>();
+builder.Services.AddTransient<IBookRepository, BookRepository>();
+
+builder.Services.AddScoped<IBookGenericRepository, BookGenerictRepository>();
 builder.Services.AddScoped<IProductServices, ProductServices>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

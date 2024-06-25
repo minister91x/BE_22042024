@@ -8,11 +8,11 @@ namespace EBook.DataAccess.NetCore.DTO
 {
     public class ProductInsertUpdateRequestData
     {
-        public int ProductID { get; set; }
-        public int CategoryId { get; set; }
-        public string ProductName { get; set; }
-
-        public string AttributeValues { get; set; } // 256 lit -den , 10 , 1000 , 9000 _ 236 lit -den , 15 , 1200 , 10000  
+        public int ProductID { get; set; } = 0;
+        public int CategoryId { get; set; } = 0;
+        public string? ProductName { get; set; }
+        public string? Base64Image { get; set; }
+        public string? AttributeValues { get; set; } // 256 lit -den , 10 , 1000 , 9000 _ 236 lit -den , 15 , 1200 , 10000  
     }
 
     public class Product_DeleteRequestData

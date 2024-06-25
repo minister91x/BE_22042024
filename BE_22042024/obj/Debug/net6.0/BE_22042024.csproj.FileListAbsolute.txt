@@ -71,3 +71,6 @@ C:\Users\Admin\source\repos\BE_22042024\BE_22042024\bin\Debug\net6.0\Eshop.Commo
 C:\Users\Admin\source\repos\BE_22042024\BE_22042024\bin\Debug\net6.0\Eshop.Common.pdb
 C:\Users\Admin\source\repos\BE_22042024\BE_22042024\bin\Debug\net6.0\Humanizer.dll
 C:\Users\Admin\source\repos\BE_22042024\BE_22042024\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Admin\source\repos\BE_22042024\BE_22042024\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Admin\source\repos\BE_22042024\BE_22042024\bin\Debug\net6.0\BE_2204.Common.dll
+C:\Users\Admin\source\repos\BE_22042024\BE_22042024\bin\Debug\net6.0\BE_2204.Common.pdb
