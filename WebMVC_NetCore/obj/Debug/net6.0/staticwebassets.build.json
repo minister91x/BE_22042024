@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Lq12fi9ALbYkyPea7ZMgbiKcUxzZjvls68KJJYMcpPI=",
+  "Hash": "e7XxPjokWDHf6bN7ayfJ3p1YTEDMeZG5pewWXinI1wA=",
   "Source": "WebMVC_NetCore",
   "BasePath": "_content/WebMVC_NetCore",
   "Mode": "Default",
@@ -542,6 +542,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\dist\\css\\alt\\adminlte.plugins.min.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\BE_22042024\\WebMVC_NetCore\\wwwroot\\dist\\css\\DanhSachImport_Template.xlsm",
+      "SourceId": "WebMVC_NetCore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\BE_22042024\\WebMVC_NetCore\\wwwroot\\",
+      "BasePath": "_content/WebMVC_NetCore",
+      "RelativePath": "dist/css/DanhSachImport_Template.xlsm",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\css\\DanhSachImport_Template.xlsm"
     },
     {
       "Identity": "C:\\Users\\Admin\\source\\repos\\BE_22042024\\WebMVC_NetCore\\wwwroot\\dist\\css\\sweetalert2@11.js",

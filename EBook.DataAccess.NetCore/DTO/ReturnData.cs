@@ -10,6 +10,8 @@ namespace EBook.DataAccess.NetCore.DTO
     {
         public int ReturnCode { get; set; }
         public string ReturnMsg { get; set; }
+
+        public string token { get; set; }
     }
 
     public class BookInsertReturnData : ReturnData
@@ -28,5 +30,12 @@ namespace EBook.DataAccess.NetCore.DTO
 
     public class Order_CreateReturnData : ReturnData
     {
+    }
+
+    public class LoginResponseData : ReturnData
+    {
+        public Account account { get; set; }
+
+        public string token { get; set; }
     }
 }

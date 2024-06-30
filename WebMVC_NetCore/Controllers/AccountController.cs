@@ -2,6 +2,7 @@
 using EBook.DataAccess.NetCore.IServices;
 using EBook.DataAccess.NetCore.Services;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using WebMVC_NetCore.Models;
 
 namespace WebMVC_NetCore.Controllers
@@ -9,11 +10,10 @@ namespace WebMVC_NetCore.Controllers
     public class AccountController : Controller
     {
         readonly IConfiguration _configuration;
-        readonly IAccountServices _accountServices;
-        public AccountController(IConfiguration configuration, IAccountServices accountServices)
-        {// Dependency Contructor
+        public AccountController(IConfiguration configuration)
+        {
+            // Dependency Contructor
             _configuration = configuration;
-            _accountServices = accountServices;
         }
         public IActionResult Index()
         {
@@ -30,7 +30,8 @@ namespace WebMVC_NetCore.Controllers
             var returnData = new ReturnData();
             try
             {
-                if (requestData == null || string.IsNullOrEmpty(requestData.email)
+                // Bước 1: Kiểm tra dữ liệu đầu vào 
+                if (requestData == null || string.IsNullOrEmpty(requestData.username)
                     || string.IsNullOrEmpty(requestData.password))
                 {
                     returnData.ReturnCode = -2;
@@ -38,27 +39,51 @@ namespace WebMVC_NetCore.Controllers
                     return Json(returnData);
                 }
 
-                // chuyển mật khẩu ở dạng plantext -> mã hóa 
-                // 12345 -> SSMG5a92ylYwR3dTvcnMjEn6gU90X1Ob
-                var salt = _configuration["Sercurity:SALT_KEY"] ?? "";
-                var passwordHash = BE_2204.Common.Sercurity.EncryptPassword(requestData.password, salt);
+                // Bước 2 : GỌI API ĐỂ LẤY TOKEN 
+                // bƯỚC 2.1 kHAI BÁO URL CỦA API
 
-                requestData.password = passwordHash;
+                var baseurl = _configuration["API_URL:URL"] ?? "";
+                var url = "api/Account/Login";
 
-               // var result = await new AccountServices().Account_Login(requestData);
-                
-               // var result = await _accountServices.Account_Login(requestData);
+                //Bước 2.2 convert từ object requestData sang Json để đẩy lên API
+                var jsonData = JsonConvert.SerializeObject(requestData);
 
-              //  returnData.ReturnCode = result.ReturnCode;
-                //returnData.ReturnMsg = result.ReturnMsg;
+                // Bước 2.3 dùng httpClient để đưa json lên URL của API
+                var result = await BE_2204.Common.HttpHelper.HttpSenPost(baseurl, url, jsonData);
+
+                if (string.IsNullOrEmpty(result))
+                {
+                    returnData.ReturnCode = -2;
+                    returnData.ReturnMsg = "Lỗi";
+                    return Json(returnData);
+                }
+
+                // Bước 2.4 : Convert từ json nhận được thành object 
+
+                var rs = JsonConvert.DeserializeObject<ReturnData>(result);
+                if (rs.ReturnCode <= 0)
+                {
+                    returnData.ReturnCode = rs.ReturnCode;
+                    returnData.ReturnMsg = rs.ReturnMsg;
+                    return Json(returnData);
+                }
+
+
+                returnData.ReturnCode = 1;
+                returnData.ReturnMsg = "Đăng nhập thành công!";
+                returnData.token = rs.token;
+
+              //  Session
+                return Json(returnData);
             }
             catch (Exception ex)
             {
-
-                throw;
+                returnData.ReturnCode = -969;
+                returnData.ReturnMsg = ex.Message ;
+                return Json(returnData);
             }
 
-            return Json(returnData);
+            
         }
     }
 }

@@ -11,6 +11,8 @@ namespace EBook.DataAccess.NetCore.UnitOfWork
     {
         public IProductServices _productServices { get; set; }
         public IBookGenericRepository _bookGenericRepository { get; set; }
+
+        public IAccountServices _accountServices { get; set; }
         int SaveChange();
     }
 }

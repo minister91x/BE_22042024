@@ -20,6 +20,9 @@ namespace WebMVC_NetCore.Controllers
         {
             var model = new List<BookModels>();
 
+
+
+
             // đưa dữ liệu vào model
             for (int i = 0; i < 5; i++)
             {
