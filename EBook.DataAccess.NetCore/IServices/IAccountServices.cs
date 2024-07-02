@@ -11,5 +11,7 @@ namespace EBook.DataAccess.NetCore.IServices
     {
        Task<LoginResponseData> Account_Login(Account_LoginRequestData requestData);
 
+        Task<Function> GetFunction(string functionCode);
+        Task<User_Permission> User_PermissionById(int functionId, int UserID);
     }
 }

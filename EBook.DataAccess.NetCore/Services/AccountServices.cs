@@ -49,5 +49,38 @@ namespace EBook.DataAccess.NetCore.Services
                 throw;
             }
         }
+
+        public async Task<Function> GetFunction(string functionCode)
+        {
+            var model = new Function();
+            try
+            {
+                model = _eBookDBContext.function.Where(s => s.FunctionCode == functionCode).FirstOrDefault();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return model;
+        }
+
+        public async Task<User_Permission> User_PermissionById(int functionId, int UserID)
+        {
+            var model = new User_Permission();
+
+            try
+            {
+                model = _eBookDBContext.user_permission.Where(s => s.FunctionID == functionId && s.UserID == UserID).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+            return model;
+        }
     }
 }

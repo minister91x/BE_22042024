@@ -1,4 +1,5 @@
-﻿using EBook.DataAccess.NetCore.DTO;
+﻿using BE_22042024.Filter;
+using EBook.DataAccess.NetCore.DTO;
 using EBook.DataAccess.NetCore.IServices;
 using EBook.DataAccess.NetCore.UnitOfWork;
 using Microsoft.AspNetCore.Http;
@@ -29,6 +30,7 @@ namespace BE_22042024.Controllers
         }
 
         [HttpPost("GetBooks")]
+        [EShopAuthorize("LIST_BOOK","VIEW")]
         public async Task<ActionResult> GetBooks(GetBooksRequuestData requuestData)
         {
             // var list = _bookServices.GetBooks(requuestData);
