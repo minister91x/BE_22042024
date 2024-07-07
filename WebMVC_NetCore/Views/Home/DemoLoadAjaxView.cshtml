@@ -5,6 +5,7 @@
         <tr>
             <th>ProductId</th>
             <th>ProductName</th>
+             <th>Image</th>
             <th>Hành động</th>
             <th>Mua</th>
         </tr>
@@ -17,6 +18,7 @@
                 <tr class="product_index_@item.ProductID">
                     <td>@item.ProductID</td>
                     <td>@item.ProductName</td>
+                       <td><img src="@item.ProductImage" style="width:150px;height:150px;" /></td>
                     <td>
                         <a data-productid="@item.ProductID" onclick="Product_Delete(@item.ProductID)">
                             <i class="fa fa-trash">Xóa</i>

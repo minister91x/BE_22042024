@@ -19,4 +19,9 @@ namespace EBook.DataAccess.NetCore.DTO
     {
         public int ProductID { get; set; }
     }
+
+    public class ProductGetListRequestData
+    {
+
+    }
 }

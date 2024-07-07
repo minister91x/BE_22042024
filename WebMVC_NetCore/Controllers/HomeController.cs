@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using WebMVC_NetCore.Models;
+using ProductGetListRequestData = EBook.DataAccess.NetCore.DTO.ProductGetListRequestData;
 
 namespace WebMVC_NetCore.Controllers
 {
@@ -57,12 +58,50 @@ namespace WebMVC_NetCore.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> DemoLoadAjaxView()
+        public async Task<ActionResult> DemoLoadAjaxView(ProductGetListRequestData requestData)
         {
             var model = new List<Product>();
             try
             {
-               // model = await new EBook.DataAccess.NetCore.Services.ProductServices().ProductGetList();
+                var token = Request.Cookies["MY_JWT_TOKEN"] != null ? Request.Cookies["MY_JWT_TOKEN"].ToString() : "";
+                if (string.IsNullOrEmpty(token))
+                {
+                    return PartialView(model);
+                }
+                // Bước 1 : khai báo API URL
+
+                var baseurl = _configuration["API_URL:URL"] ?? "";
+                var url = "api/Product/ProductGetList";
+
+                // bƯỚC 2: tạo json data ( object sang JSON)
+                var jsonData = JsonConvert.SerializeObject(requestData);
+
+                // Bước 3 : gọi httpclient bên common để post lên api
+
+                //bƯỚC 3.1 TRUYỀN TOKEN VỪA LẤY ĐƯỢC Ở BƯỚC ĐĂNG NHẬP ĐỂ ĐƯA SANG API
+
+                var result = await BE_2204.Common.HttpHelper.HttpSenPostWithToken(baseurl, url, jsonData, token);
+
+                // Bước 4: nhận dữ liệu về 
+
+                if (!string.IsNullOrEmpty(result))
+                {
+                    var response = JsonConvert.DeserializeObject<List<ProductGetListReponseData>>(result);
+                    if (response != null && response.Count > 0)
+                    {
+                      
+                        foreach (var item in response)
+                        {
+                            model.Add(new Product
+                            {
+                                ProductName = item.productName,
+                                ProductImage =  item.productImage
+                            });
+                        }
+                    }
+                }
+
+                return PartialView(model);
             }
             catch (Exception ex)
             {
@@ -103,7 +142,7 @@ namespace WebMVC_NetCore.Controllers
                 if (!string.IsNullOrEmpty(result))
                 {
                     var rs = JsonConvert.DeserializeObject<ReturnData>(result);
-                   
+
                 }
 
 

@@ -29,7 +29,22 @@ namespace EBook.DataAccess.NetCore.DTO
     }
 
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
-    public class Result
+
+    public class ResultResponse
+    {
+        public int code { get; set; }
+        public string message { get; set; }
+    }
+    public class Result: ResultResponse
+    {
+        public List<List> list { get; set; }
+       
+    }
+
+   
+
+
+    public class List
     {
         public int bookID { get; set; }
         public string bookName { get; set; }
@@ -40,9 +55,14 @@ namespace EBook.DataAccess.NetCore.DTO
         public int price { get; set; }
     }
 
-    public class GetBookResponseData
+    public class GetBookResponseData:ResultResponse
     {
-        public List<Result> result { get; set; }
+        public Result result { get; set; }
+    }
+
+    public class Root
+    {
+        public Result result { get; set; }
         public int id { get; set; }
         public object exception { get; set; }
         public int status { get; set; }
@@ -54,5 +74,16 @@ namespace EBook.DataAccess.NetCore.DTO
         public bool isFaulted { get; set; }
     }
 
+
+
+    public class ResponseData
+    {
+        public int Code { get; set; }
+        public string Message { get; set; }
+    }
+    public class Books_GetAllResponseData : ResponseData
+    {
+        public List<Book> list { get; set; }
+    }
 
 }

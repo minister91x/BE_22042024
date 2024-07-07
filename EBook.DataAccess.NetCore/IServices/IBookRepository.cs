@@ -9,7 +9,7 @@ namespace EBook.DataAccess.NetCore.IServices
 {
     public interface IBookRepository
     {
-        Task<List<Book>> GetBooks(GetBooksRequuestData requuestData);
+        Task<Books_GetAllResponseData> GetBooks(GetBooksRequuestData requuestData);
         Task<BookInsertReturnData> Book_Insert(Book book);
 
         Task<BookInsertReturnData> ADO_Book_Insert(Book book);

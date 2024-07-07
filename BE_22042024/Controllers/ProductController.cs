@@ -29,12 +29,20 @@ namespace BE_22042024.Controllers
         }
 
         [HttpPost("ProductGetList")]
-        public async Task<ActionResult> ProductGetList()
+        public async Task<ActionResult> ProductGetList(ProductGetListRequestData requestData)
         {
             var lstProduct = new List<Product>();
             try
             {
+                var media_url = _configuration["URL:MEDIA_URL"] ?? "";
                 lstProduct = await _unitOfWork._productServices.ProductGetList();
+                if (lstProduct.Count > 0)
+                {
+                    foreach (var item in lstProduct)
+                    {
+                        item.ProductImage = media_url + item.ProductImage;
+                    }
+                }
             }
             catch (Exception ex)
             {

@@ -42,7 +42,7 @@ namespace BE_22042024.Filter
                         context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                         context.Result = new JsonResult(new
                         {
-                            Code = HttpStatusCode.Unauthorized,
+                            Code = 404,
                             Message = "Vui lòng đăng nhập để thực hiện chức năng này "
                         });
 
@@ -57,7 +57,7 @@ namespace BE_22042024.Filter
                         context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                         context.Result = new JsonResult(new
                         {
-                            Code = HttpStatusCode.Unauthorized,
+                            Code = 404,
                             Message = "Vui lòng đăng nhập để thực hiện chức năng này "
                         });
 
@@ -75,7 +75,7 @@ namespace BE_22042024.Filter
                         context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                         context.Result = new JsonResult(new
                         {
-                            Code = HttpStatusCode.Unauthorized,
+                            Code = 102,
                             Message = "Chức năng không hợp lệ "
                         });
 
@@ -95,8 +95,8 @@ namespace BE_22042024.Filter
                                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                                 context.Result = new JsonResult(new
                                 {
-                                    Code = HttpStatusCode.Unauthorized,
-                                    Message = "Bạn không có quyền"
+                                    Code = 100,
+                                    Message = "Bạn không có quyền thực hiện chức năng này"
                                 });
 
                                 return;

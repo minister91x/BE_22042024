@@ -89,10 +89,10 @@
                 dataType: "json",
                 success: function(rs) {
                     if (rs.returnCode > 0) {
-                        ///  window.location.href = "/";
-
                         // set cookies
+                        debugger;   
                         setCookie("MY_JWT_TOKEN", rs.token, 1);
+                      window.location.href = "/";
                     }
                     alert(rs.returnMsg);
                 },

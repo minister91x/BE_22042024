@@ -116,13 +116,14 @@ namespace EBook.DataAccess.NetCore.Services
                     list.Add(book);
                 }
 
+
+
                 return list;
 
             }
             catch (Exception ex)
             {
-
-                throw;
+                return list;
             }
         }
 
@@ -170,31 +171,39 @@ namespace EBook.DataAccess.NetCore.Services
             }
         }
 
-        public async Task<List<Book>> GetBooks(GetBooksRequuestData requuestData)
+        public async Task<Books_GetAllResponseData> GetBooks(GetBooksRequuestData requuestData)
         {
-            var model = new List<Book>();
+            var model = new Books_GetAllResponseData();
+            var list = new List<Book>();
             try
             {
-                
-                var from_date = DateTime.ParseExact(requuestData.publishDateFrom, "dd/MM/yyyy 00:00:00", CultureInfo.InvariantCulture);
-                var to_date = DateTime.ParseExact(requuestData.publishDateTo, "dd/MM/yyyy 23:59:59", CultureInfo.InvariantCulture);
 
-                model = _eBookDBContext.book.ToList();
+                var from_date = !string.IsNullOrEmpty(requuestData.publishDateFrom) ? DateTime.ParseExact(requuestData.publishDateFrom, "dd/MM/yyyy 00:00:00", CultureInfo.InvariantCulture) : DateTime.Now.AddDays(-30);
+                var to_date = !string.IsNullOrEmpty(requuestData.publishDateTo) ? DateTime.ParseExact(requuestData.publishDateTo, "dd/MM/yyyy 23:59:59", CultureInfo.InvariantCulture) : DateTime.Now.AddDays(30);
+
+                list = _eBookDBContext.book.ToList();
 
                 if (!string.IsNullOrEmpty(requuestData.BookName))
                 {
-                    model = model.FindAll(s => s.BookName.ToLower().Contains(requuestData.BookName.ToLower())).ToList();
+                    list = list.FindAll(s => s.BookName.ToLower().Contains(requuestData.BookName.ToLower())).ToList();
                 }
                 if (requuestData.CategoryID > 0)
                 {
-                    model = model.FindAll(s => s.CategoryID == requuestData.CategoryID).ToList();
+                    list = list.FindAll(s => s.CategoryID == requuestData.CategoryID).ToList();
                 }
 
                 if (requuestData.publishDateTo != null)
                 {
-                    model = model.FindAll(s => s.PublishDate >= from_date
+                    list = list.FindAll(s => s.PublishDate >= from_date
                     && s.PublishDate <= to_date).ToList();
                 }
+
+                model.Code = 1;
+                model.Message = "Lấy dữ liệu thành công!";
+
+                model.list = list;
+
+                return model;
             }
             catch (Exception ex)
             {

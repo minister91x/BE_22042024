@@ -12,6 +12,7 @@ namespace EBook.DataAccess.NetCore.Services
     public class ProductServices : IProductServices
     {
        private EBookDBContext _eBookDBContext;
+       
         public ProductServices(EBookDBContext eBookDBContext)
         {
             _eBookDBContext = eBookDBContext;
@@ -23,6 +24,8 @@ namespace EBook.DataAccess.NetCore.Services
             try
             {
                 var listProduct = _eBookDBContext.product.ToList();
+
+               
                 foreach (var item in listProduct)
                 {
                     // lấy attribute theo productId 
@@ -32,7 +35,8 @@ namespace EBook.DataAccess.NetCore.Services
                     product.productAttributes = p_attr;
                     product.ProductID = item.ProductID;
                     product.ProductName = item.ProductName;
-                    
+                    product.ProductImage = item.ProductImage;
+
                     list.Add(product);
 
                 }
