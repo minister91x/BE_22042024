@@ -20,7 +20,8 @@ namespace EBook.DataAccess.NetCore.DBContext
 
         public virtual DbSet<Product> product { get; set; }
         public virtual DbSet<ProductAttribute> productAttribute { get; set; }
-        public virtual DbSet<Orders> order { get; set; }
+        public virtual DbSet<Order> order { get; set; }
+        public virtual DbSet<OrderDetail> orderdetail { get; set; }
         public virtual DbSet<Account> account { get; set; }
         public virtual DbSet<Function> function { get; set; }
         public virtual DbSet<User_Permission> user_permission { get; set; }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "e7XxPjokWDHf6bN7ayfJ3p1YTEDMeZG5pewWXinI1wA=",
+  "Hash": "/gSjnSRpenLmevVBpvcZmOXsbo1YUXMPSZcFgT5f1eQ=",
   "Source": "WebMVC_NetCore",
   "BasePath": "_content/WebMVC_NetCore",
   "Mode": "Default",
@@ -1307,6 +1307,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\BE_22042024\\WebMVC_NetCore\\wwwroot\\js\\Cart.js",
+      "SourceId": "WebMVC_NetCore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\BE_22042024\\WebMVC_NetCore\\wwwroot\\",
+      "BasePath": "_content/WebMVC_NetCore",
+      "RelativePath": "js/Cart.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Cart.js"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\BE_22042024\\WebMVC_NetCore\\wwwroot\\js\\js.cookie.js",
+      "SourceId": "WebMVC_NetCore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\BE_22042024\\WebMVC_NetCore\\wwwroot\\",
+      "BasePath": "_content/WebMVC_NetCore",
+      "RelativePath": "js/js.cookie.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\js.cookie.js"
     },
     {
       "Identity": "C:\\Users\\Admin\\source\\repos\\BE_22042024\\WebMVC_NetCore\\wwwroot\\js\\site.js",

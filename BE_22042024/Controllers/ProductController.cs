@@ -116,5 +116,81 @@ namespace BE_22042024.Controllers
                 throw;
             }
         }
+
+
+        [HttpPost("CreateOrder")]
+
+        public async Task<ActionResult> CreateOrder(OrdersCreateRequestData requestData)
+        {
+            var returnData = new ReturnData();
+            try
+            {
+                if (requestData == null
+                    || string.IsNullOrEmpty(requestData.ShipingAddress)
+                    || requestData.TotalAmount == 0
+                     || requestData.products.Count <= 0)
+                {
+                    returnData.ResponseCode = -1;
+                    returnData.Description = "Dữ lieeuj đầu vào không hợp lệ";
+                    return Ok(returnData);
+                }
+
+
+                // kiểm tra xem tổng tiền với số tiền theo danh sách sản phẩm có khớp không
+                var totalAmountByProduct = 0;
+
+                foreach (var item in requestData.products)
+                {
+                    totalAmountByProduct += item.Price * item.Quantity;
+                }
+
+                if (totalAmountByProduct != requestData.TotalAmount)
+                {
+                    returnData.ResponseCode = -2;
+                    returnData.Description = "Tổng tiền không hợp lệ";
+                    return Ok(returnData);
+                }
+
+                // Bước 1: tạo order 
+                var Req = new OrdersCreateRequestData
+                {
+                    ShipingAddress = requestData.ShipingAddress,
+                    TotalAmount = requestData.TotalAmount,
+                    CustomerId = 1,
+
+                };
+                var rs = await _unitOfWork._orderServices.Order_Create(Req);
+                //if (rs.ReturnCode <= 0)
+                //{
+                //    returnData.ResponseCode = -3;
+                //    returnData.Description = "Không tạo được đơn hàng";
+                //    return Ok(returnData);
+                //}
+
+                // bước 2: tạo order detail
+
+                foreach (var item in requestData.products)
+                {
+                    var rs_detail = await _unitOfWork._orderServices.OrderDetail_Create(new OrderDetail
+                    {
+                        CreatedTime = DateTime.Now,
+                        OrderId = rs.ReturnCode,
+                        Quantity = item.Quantity,
+                        ProductID = item.ProductID
+                    });
+                }
+
+                _unitOfWork.SaveChange();
+
+                returnData.ResponseCode = 1;
+                returnData.Description = "tạo đơn hàng thành công!";
+                return Ok(returnData);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }

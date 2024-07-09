@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EBook.DataAccess.NetCore.DTO
 {
-    public class Orders
+    public class Order
     {
         [Key]
         public int OrderId { get; set; }
@@ -19,12 +19,9 @@ namespace EBook.DataAccess.NetCore.DTO
 
     public class OrdersCreateRequestData
     {
-        
-        public int OrderId { get; set; }
         public int CustomerId { get; set; }
-        public DateTime CreatedTime { get; set; }
         public string ShipingAddress { get; set; }
-
         public int TotalAmount { get; set; }
+        public List<ProductShopping> products { get; set; }
     }
 }

@@ -27,8 +27,14 @@
 
                     </td>
                     <td>
+                        <a  data-productid=@item.ProductID
+                            data-productname=@item.ProductName 
+                            data-image=@item.ProductImage
+                            data-price=10
+                            onclick="AddItemToCart(this)">Đặt hàng</a>
 
-                        @if (item.productAttributes != null && item.productAttributes.Count > 0)
+
+                      @*  @if (item.productAttributes != null && item.productAttributes.Count > 0)
                         {
                             <input type="text" placeholder="số lượng mua" class="form-control" id="txtBuyQuantity_@item.ProductID" />
                             <input type="text" placeholder="địa chỉ nhận " class="form-control" id="txtShippingAddress_@item.ProductID" />
@@ -40,8 +46,8 @@
                                 }
 
                             </select>
-                            <a onclick="BuyProduct(@item.ProductID)">Đặt hàng</a>
-                        }
+                            
+                        }*@
 
                     </td>
                 </tr>

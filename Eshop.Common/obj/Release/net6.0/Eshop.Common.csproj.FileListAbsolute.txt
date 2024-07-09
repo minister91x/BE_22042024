@@ -1,0 +1,12 @@
+C:\Users\Admin\source\repos\BE_22042024\Eshop.Common\bin\Release\net6.0\Eshop.Common.deps.json
+C:\Users\Admin\source\repos\BE_22042024\Eshop.Common\bin\Release\net6.0\Eshop.Common.dll
+C:\Users\Admin\source\repos\BE_22042024\Eshop.Common\bin\Release\net6.0\Eshop.Common.pdb
+C:\Users\Admin\source\repos\BE_22042024\Eshop.Common\obj\Release\net6.0\Eshop.Common.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\BE_22042024\Eshop.Common\obj\Release\net6.0\Eshop.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\source\repos\BE_22042024\Eshop.Common\obj\Release\net6.0\Eshop.Common.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\BE_22042024\Eshop.Common\obj\Release\net6.0\Eshop.Common.AssemblyInfo.cs
+C:\Users\Admin\source\repos\BE_22042024\Eshop.Common\obj\Release\net6.0\Eshop.Common.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\BE_22042024\Eshop.Common\obj\Release\net6.0\Eshop.Common.dll
+C:\Users\Admin\source\repos\BE_22042024\Eshop.Common\obj\Release\net6.0\refint\Eshop.Common.dll
+C:\Users\Admin\source\repos\BE_22042024\Eshop.Common\obj\Release\net6.0\Eshop.Common.pdb
+C:\Users\Admin\source\repos\BE_22042024\Eshop.Common\obj\Release\net6.0\ref\Eshop.Common.dll

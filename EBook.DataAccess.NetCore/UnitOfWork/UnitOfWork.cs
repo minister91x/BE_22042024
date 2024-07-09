@@ -15,16 +15,17 @@ namespace EBook.DataAccess.NetCore.UnitOfWork
         private EBookDBContext _eBookDBContext { get; set; }
         public IAccountServices _accountServices { get; set; }
         public IBookRepository _bookRepository { get; set; }
-
+        public IOrderServices _orderServices { get; set; }
         public UnitOfWork(IProductServices productServices, 
             IBookGenericRepository bookGenericRepository, EBookDBContext eBookDBContext,
-            IAccountServices accountServices, IBookRepository bookRepository)
+            IAccountServices accountServices, IBookRepository bookRepository, IOrderServices orderServices)
         {
             _productServices = productServices;
             _bookGenericRepository = bookGenericRepository;
             _eBookDBContext = eBookDBContext;
             _accountServices = accountServices;
             _bookRepository = bookRepository;
+            _orderServices = orderServices;
         }
 
         public int SaveChange()

@@ -1,0 +1,112 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    .row_marging {
+        margin-top: 5px;
+    }
+</style>
+
+
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Giỏ hàng của bạn</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">sản phẩm</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row row_marging">
+            <div class="col-md-12">
+                <div id="ListShoppingCartPartial">
+                </div>
+            </div>
+        </div>
+
+        <div class="row row_marging">
+            <div class="col-md-3 row_marging">
+                <input type="text" id="txtCustomer" value="" class="form-control" placeholder="Tên Khách hàng" />
+            </div>
+            <div class="col-md-3 row_marging">
+                <input type="text" id="txtCustomerAddress" value="" class="form-control" placeholder="địa chỉ" />
+            </div>
+
+            <div class="col-md-3 row_marging">
+                <button class="btn btn-success" id="btnCreatOrder">Đặt hàng</button>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+@section Scripts{
+    <script>
+        $(document).ready(function() {
+
+            LoadData();
+
+            $("#btnCreatOrder").click(function() {
+                CreatOrder();
+            });
+        });
+
+        function LoadData() {
+
+            var param = {
+            };
+
+            $.ajax({
+                type: 'GET',
+                url: "/ShoppingCart/ListShoppingCartPartial",
+                data: param,
+                async: true,
+                dataType: "html",
+                // dataType:"json",
+                success: function(rs) {
+                    $("#ListShoppingCartPartial").html("");
+                    $("#ListShoppingCartPartial").html(rs);
+                },
+                error(rs) {
+                    console.log(JSON.stringify(rs));
+                }
+            });
+        }
+
+        function CreatOrder() {
+             var customername = $("#txtCustomer").val();
+            var customerAddress = $("#txtCustomerAddress").val();
+
+            var param = {
+                Customername: customername,
+                CustomerAddress: customerAddress
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: "/ShoppingCart/CreatOrder",
+                data: param,
+                async: true,
+                // dataType: "html",
+                dataType: "json",
+                success: function(rs) {
+                    
+                    alert(rs.returnMsg);
+                },
+                error(rs) {
+                    console.log(JSON.stringify(rs));
+                }
+            });
+        }
+    </script>
+        }

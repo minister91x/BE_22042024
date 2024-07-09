@@ -32,7 +32,7 @@ namespace EBook.DataAccess.NetCore.Services
                     var p_attr = _eBookDBContext.productAttribute.ToList().FindAll(x => x.ProductID == item.ProductID);
 
                     var product = new Product();
-                    product.productAttributes = p_attr;
+                  //  product.productAttributes = p_attr;
                     product.ProductID = item.ProductID;
                     product.ProductName = item.ProductName;
                     product.ProductImage = item.ProductImage;
@@ -89,7 +89,7 @@ namespace EBook.DataAccess.NetCore.Services
                 var productReq = new Product
                 {
                     ProductName = requestData.ProductName,
-                    CategoryId = requestData.CategoryId,
+                   // CategoryId = requestData.CategoryId,
                     ProductImage = requestData.Base64Image
                 };
 
